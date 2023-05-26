@@ -1,6 +1,6 @@
 # 👨‍💻 Experience
 
-****Incoming Summer Analyst** @ [Lazard](https://www.lazard.com/) _(Summer 2024)_
+**Incoming Summer Analyst** @ [Lazard](https://www.lazard.com/) _(Summer 2024)_
 
 Venture Growth Banking
 
