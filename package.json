@@ -63,6 +63,7 @@
   },
   "devDependencies": {
     "@types/webpack-env": "^1.17.0",
+    "dotenv": "^16.0.3",
     "gh-pages": "^4.0.0"
   }
 }
