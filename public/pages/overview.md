@@ -33,7 +33,7 @@ _**Technologies Used**_: TBD
 
 `2021-2022` [Harvard College](https://college.harvard.edu/)
 - **Bachelor of Arts** Applied Mathematics in Computer Science 
-- GPA: 4.0/4.0
+- GPA: 3.91/4.0
 
 `2020-2022` [Plano West Senior High School](https://www.pisd.edu/site/default.aspx?PageType=3&DomainID=293&ModuleInstanceID=4433&ViewID=6446EE88-D30C-497E-9316-3F8874B3E108&RenderLoc=0&FlexDataID=98016&PageID=1722)
 - GPA: 4.77/4.00; Valedictorian
