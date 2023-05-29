@@ -1,5 +1,8 @@
 # 🧪 Projects
 
+## [Surfa Travel](https://surfatravel.com/) 🔗
+- Created site to match couch-surfing students to hosts
+- AWS Lambda, DynamoDB, React JS (Material UI)
 ## [STEM Music Player](https://github.com/john7rho/orpheus_website) 🔗
 - Used Spleeter Machine Learning API to split music files into instrumentals for live performances
 - JavaScript, HTML, CSS Flask, Keras
