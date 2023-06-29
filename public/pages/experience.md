@@ -17,7 +17,8 @@ _**Technologies Used**_: SQL
 **Data Analytics Intern** @ [Black Sheep Foods](https://blacksheepfoods.com/) _(Summer 2023)_
 
 Part of Bessemer Venture Partners Fellowship (20-student cohort)
+Developed NextJS dashboard for flavor profile prediciton using amino acid content; Used Random Forest Regressor models
 
-_**Technologies Used**_: TBD
+_**Technologies Used**_: Django, Python, SKLearn, NextJS
 
 &nbsp;
