@@ -6,7 +6,7 @@
 ## Programming languages
 - Python
 - JavaScript/TypeScript
-  - React.js
+  - React.js, NextJS
 - SQL
 
 ## Databases
