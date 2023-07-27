@@ -1,6 +1,7 @@
 # 🥇 Coursework (Selected)
 - Summer/Fall 2023: Game Theory For Strategic Advantage (OCW, Audit) (15.025 (G), MIT)
 - Summer/Fall 2023: Financial Accounting (OCW, Audit) (15.511, MIT)
+- Summer 2023: Databases and SQL for Data Science (Coursera, Audit) (IBM)
 - Summer 2023: Computer Architecture (Coursera, Audit) (ELE 475 / COS 475, Princeton)
 - Spring 2023: Data Structures and Algorithms (CS 124, Harvard)
 - Spring 2023: Biological and Artificial Intelligence (Neuro 240 (G), Harvard)
