@@ -14,9 +14,10 @@
 - AWS DynamoDB
 - SQLite
 
-## Cloud
-- AWS
+## Cloud/DevOps
+- AWS/GCP
 - Heroku
+- Docker
 
 ## Vcs
 - Git
