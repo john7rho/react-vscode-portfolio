@@ -69,8 +69,7 @@ export default function Footer() {
             >
               <IoIosGitBranch fontSize="0.9rem" />
               <Typography sx={{ ml: 0.5, mt: 0.1, fontSize: "0.6rem" }}>
-                Link to site template repo (thanks to
-                https://github.com/noworneverev)
+                template
               </Typography>
             </Box>
             {/* </Link> */}

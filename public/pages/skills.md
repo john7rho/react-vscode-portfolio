@@ -20,3 +20,16 @@
 
 ## Vcs
 - Git
+
+## Quantitative
+- Machine Learning
+  - TensorFlow / Keras, PyTorch
+    - Decision Trees / Random Forests, Multilayer Perceptrons, Convolutional Neural Networks
+- Statistics
+  - Monte Carlo Methods, Markov Decision Processes
+
+## Finance
+- Excel (basic)
+- Modeling
+  - LBOs, DCFs
+- Swing Trading

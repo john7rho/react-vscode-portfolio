@@ -20,6 +20,6 @@ Part of Bessemer Venture Partners Fellowship (20-student cohort, 1% acceptance r
 Developed NextJS dashboard to guide flavor profile prediction for research scientists
 Developed high-accuracy Random Forest Regressor model based on amino acid inputs
 
-_**Technologies Used**_: Django, Python, SKLearn, NextJS
+_**Technologies Used**_: Django, Python, SKLearn, TensorFlow, NextJS
 
 &nbsp;
