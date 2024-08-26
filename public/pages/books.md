@@ -1,6 +1,6 @@
 # 📚 Books
 **Current Rotation**
-The Book of Five Rings by Miyamoto Musashi
+The latest winter by Maggie Nelson
 
 **Hall of Fame**
 The Absolutely True Diary of a Part-Time Indian by Sherman Alexie

@@ -7,23 +7,23 @@ Student at Harvard studying Applied Mathematics and Computer Science. Interested
 
 ## Experience
 
-**Incoming Summer Analyst** @ [Lazard](https://www.lazard.com/) _(Summer 2024)_
+**Summer Analyst** @ [Lazard](https://www.lazard.com/) _(Summer 2024)_
 
-Venture Growth Banking
+Venture & Growth Banking; Developed presentations and research reports for AI companies; Assisted in live deal for tier-one AI infrastructure company raising $1XXm Series C
 
 &nbsp;
 
-**Incoming Product Management Intern** @ [StubHub](https://www.stubhub.com/) _(Fall 2023)_
+**Product Management Intern** @ [StubHub](https://www.stubhub.com/) _(Fall 2023)_
 
-Customer Experiences
+Customer Experiences; Built Python scripts and Excel models for service metrics and finance teams
 
 _**Technologies Used**_: SQL
 
 &nbsp;
 
-**Data Analytics Intern** @ [Black Sheep Foods](https://blacksheepfoods.com/) _(Summer 2023)_
+**Engineering Intern** @ [Black Sheep Foods](https://blacksheepfoods.com/) _(Summer 2023)_
 
-Part of Bessemer Venture Partners Fellowship (20-student cohort)
+Part of Bessemer Venture Partners Fellowship (13-student cohort)
 
 _**Technologies Used**_: Python, NextJS, Django, Firebase
 
@@ -31,9 +31,10 @@ _**Technologies Used**_: Python, NextJS, Django, Firebase
 
 ## Education
 
-`2021-2022` [Harvard College](https://college.harvard.edu/)
-- **Bachelor of Arts** Applied Mathematics in Computer Science 
-- GPA: 3.91/4.00; Wendell Prize Nominee
+`2021-2026` [Harvard College](https://college.harvard.edu/)
+- **AB** Statistics
+- **(Intended) SM** Applied Mathematics
+- GPA: 3.9/4.0; Wendell Prize Nominee
 
 `2020-2022` [Plano West Senior High School](https://www.pisd.edu/site/default.aspx?PageType=3&DomainID=293&ModuleInstanceID=4433&ViewID=6446EE88-D30C-497E-9316-3F8874B3E108&RenderLoc=0&FlexDataID=98016&PageID=1722)
 - GPA: 4.77/4.00; Valedictorian

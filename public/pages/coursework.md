@@ -1,17 +1,20 @@
 # 🥇 Coursework (Selected)
-- Fall 2023: Game Theory For Strategic Advantage (OCW, Audit) (15.025 (G), MIT)
+- Fall 2024: Reinforcement Learning (Stat 184, Harvard)
+- Fall 2024: Linear Models (Stat 139, Harvard)
+- Fall 2024: Mathematical Modeling (Applied Math 215 (G), Harvard)
+
+- Spring 2024: Inference (Stat 111, Harvard)
+- Spring 2024: Stochastic Processes (Stat 171, Harvard)
+
 - Fall 2023: Introduction to Financial Accounting (Coursera) (Wharton School)
-- Fall 2023: Introduction to Financial Engineering and Risk Management (Coursera) (Columbia)
 
 - Summer 2023: Databases and SQL for Data Science (Coursera) (IBM)
-- Summer 2023: Computer Architecture (Coursera) (ELE 475 / COS 475, Princeton)
-- Summer 2023: Object-Oriented Data Structures in C++ (Coursera, Audit) (UIUC)
 
 - Spring 2023: Data Structures and Algorithms (CS 124, Harvard)
 - Spring 2023: Biological and Artificial Intelligence (Neuro 240 (G), Harvard)
 
 - Fall 2022: Probability (Stat 110, Harvard)
-- Fall 2022: Intro to Machine Learning (6.390, MIT)
+- Fall 2022: Machine Learning (6.3900, MIT)
 
 - Spring 2022: Applied Linear Algebra and Big Data (Applied Math 120, Harvard)
 - Spring 2022: Big Data Economics (Econ 50, Harvard)

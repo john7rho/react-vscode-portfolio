@@ -13,6 +13,7 @@
 ## Databases
 - AWS DynamoDB
 - SQLite
+- Redis
 
 ## Cloud/DevOps
 - AWS/GCP
