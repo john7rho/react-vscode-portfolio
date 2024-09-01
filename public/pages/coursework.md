@@ -1,14 +1,13 @@
 # 🥇 Coursework (Selected)
 - Fall 2024: Reinforcement Learning (Stat 184, Harvard)
-- Fall 2024: Linear Models (Stat 139, Harvard)
+- Fall 2024: Probability I (Stat 210 (G), Harvard)
 - Fall 2024: Mathematical Modeling (Applied Math 215 (G), Harvard)
+- Fall 2024: Theoretical Computer Science (Comp Sci 121, Harvard)
 
 - Spring 2024: Inference (Stat 111, Harvard)
 - Spring 2024: Stochastic Processes (Stat 171, Harvard)
 
-- Fall 2023: Introduction to Financial Accounting (Coursera) (Wharton School)
-
-- Summer 2023: Databases and SQL for Data Science (Coursera) (IBM)
+- Fall 2023: Gap Semester
 
 - Spring 2023: Data Structures and Algorithms (CS 124, Harvard)
 - Spring 2023: Biological and Artificial Intelligence (Neuro 240 (G), Harvard)
