@@ -1,7 +1,8 @@
 # 🥇 Coursework (Selected)
 - Fall 2024: Intro to Reinforcement Learning (Stat 184, Harvard)
-- Fall 2024: Probability I (Stat 210 (G), Harvard)
+- Fall 2024: Intro to Linear Models (Stat 139, Harvard)
 - Fall 2024: Stochastic Methods (Applied Math 207 (G), Harvard)
+- Fall 2024: Financial Engineering (15.456 (G), MIT)
 
 - Spring 2024: Intro to Statistical Inference (Stat 111, Harvard)
 - Spring 2024: Intro to Stochastic Processes (Stat 171, Harvard)
