@@ -2,7 +2,7 @@
 
 ## Summary
 
-Student at Harvard studying Applied Mathematics and Computer Science. Interested in healthcare, consumer products, and venture. 
+Student at Harvard studying Statistics and Applied Mathematics. 
 
 
 ## Experience
