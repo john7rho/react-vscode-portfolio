@@ -8,7 +8,7 @@
 - Spring 2024: Intro to Statistical Inference (Stat 111, Harvard)
 - Spring 2024: Intro to Stochastic Processes (Stat 171, Harvard)
 \
-- Winter 2024: Econometrics (Yonsei Winter Session
+- Winter 2024: Econometrics (Yonsei Winter Session)
 \
 - Fall 2023: Gap Semester
 \
