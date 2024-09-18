@@ -1,12 +1,12 @@
 # 👨‍💻 Experience
 
-**Incoming Summer Analyst** @ [Lazard](https://www.lazard.com/) _(Summer 2024)_
+**Summer Analyst** @ [Lazard](https://www.lazard.com/) _(Summer 2024)_
 
-Venture Growth Banking
+Venture Growth Banking; Worked on live deals involving semiconductor and AI infrastructure companies; Assisted on Lazard AI report
 
 &nbsp;
 
-**Incoming Product Management Intern** @ [StubHub](https://www.stubhub.com/) _(Fall 2023)_
+**Product Management Intern** @ [StubHub](https://www.stubhub.com/) _(Fall 2023)_
 
 Customer Experiences
 
