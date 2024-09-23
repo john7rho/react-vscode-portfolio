@@ -5,7 +5,6 @@
 - Intro to Linear Models (Stat 139, Harvard)
 - Stochastic Methods (Applied Math 207 (G), Harvard)
 - Theory of Neural Computation (Applied Math 226 (G), Harvard)
-- Signal Processing (6.300, MIT)
 
 ## Spring 2024
 - Intro to Statistical Inference (Stat 111, Harvard)
