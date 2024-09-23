@@ -3,6 +3,7 @@
 - Fall 2024: Intro to Linear Models (Stat 139, Harvard)
 - Fall 2024: Stochastic Methods (Applied Math 207 (G), Harvard)
 - Fall 2024: Theory of Neural Computation (Applied Math 226 (G), Harvard)
+- Fall 2024: Signal Processing (6.300, MIT)
 \
 - Spring 2024: Intro to Statistical Inference (Stat 111, Harvard)
 - Spring 2024: Intro to Stochastic Processes (Stat 171, Harvard)

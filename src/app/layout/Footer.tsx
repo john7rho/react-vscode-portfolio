@@ -8,6 +8,17 @@ import {
   VscCheck,
 } from "react-icons/vsc";
 import { IoIosGitBranch } from "react-icons/io";
+import { keyframes } from "@mui/system";
+
+// Define the glistening animation
+const glistenAnimation = keyframes`
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+`;
 
 export default function Footer() {
   return (
@@ -15,8 +26,24 @@ export default function Footer() {
       component={Paper}
       square
       elevation={0}
-      // sx={{ height: '3vh' }}
-      sx={{ height: "20px", color: "white" }}
+      sx={{
+        height: "20px",
+        color: "white",
+        backgroundColor: "black", // Change background to black
+        position: "relative",
+        overflow: "hidden", // Hide overflow for animation
+        "&::after": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: "-100%",
+          width: "100%",
+          height: "100%",
+          background:
+            "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
+          animation: `${glistenAnimation} 5s linear infinite`,
+        },
+      }}
       display="flex"
     >
       <Grid container>

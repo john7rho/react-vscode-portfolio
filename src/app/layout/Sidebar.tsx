@@ -1,11 +1,42 @@
 import React from "react";
 import { Box, Link, Paper, Tooltip } from "@mui/material";
+import { keyframes } from "@mui/system";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import { VscFiles, VscSettingsGear } from "react-icons/vsc";
 import { BiGitBranch } from "react-icons/bi";
 import Divider from "@mui/material/Divider";
 import { links } from "../pages/links";
+
+// Update the keyframes definition
+const pulse = keyframes`
+  0% {
+    background-size: 100% 100%;
+    transform: scale(1);
+  }
+  50% {
+    background-size: 120% 120%;
+    transform: scale(1.02);
+  }
+  100% {
+    background-size: 100% 100%;
+    transform: scale(1);
+  }
+`;
+
+const bubbleAnimation = keyframes`
+  0% {
+    transform: translateY(100%) scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1);
+    opacity: 0;
+  }
+`;
 
 interface Props {
   expanded: boolean;
@@ -24,7 +55,30 @@ export default function Sidebar({
     <Box
       sx={{
         height: `calc(100vh - 20px)`,
-        backgroundColor: darkMode ? "#333333" : "#2c2c2c",
+        background: `radial-gradient(circle at center, #001f3f, #000814)`,
+        position: "relative",
+        overflow: "hidden",
+        "&::before, &::after": {
+          content: '""',
+          position: "absolute",
+          bottom: "0",
+          left: "50%",
+          width: "30px",
+          height: "30px",
+          borderRadius: "50%",
+          background: "rgba(255, 255, 255, 0.1)",
+          animation: `${bubbleAnimation} 15s infinite ease-in-out`,
+        },
+        "&::before": {
+          left: "25%",
+          animationDelay: "2s",
+        },
+        "&::after": {
+          left: "75%",
+          width: "20px",
+          height: "20px",
+          animationDelay: "5s",
+        },
       }}
       justifyContent="space-between"
       display="flex"

@@ -19,6 +19,7 @@ import Home from "../pages/Home";
 import { pages } from "../pages/pages";
 import usePageTracking from "../hooks/usePageTracking";
 import { isBrowser } from "react-device-detect";
+import { keyframes } from "@mui/system";
 
 interface Page {
   index: number;
@@ -47,6 +48,12 @@ export default function App() {
   const [visiblePages, setVisiblePages] = useState(pages);
   const paletteType = darkMode ? "dark" : "light";
   usePageTracking();
+  const animateGradient = keyframes`
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  `;
+
   const theme = createTheme({
     palette: {
       mode: paletteType,
@@ -57,7 +64,14 @@ export default function App() {
     components: {
       MuiCssBaseline: {
         styleOverrides: {
-          body: paletteType === "dark" ? darkScrollbar() : null,
+          body: {
+            ...(paletteType === "dark" ? darkScrollbar() : null),
+            backgroundImage:
+              paletteType === "light"
+                ? "linear-gradient(120deg, #f6f8fa 0%, #e7eaf0 100%)"
+                : "linear-gradient(120deg, #1e1e1e 0%, #2d2d2d 100%)",
+            backgroundAttachment: "fixed",
+          },
         },
       },
       MuiDivider: {
@@ -123,7 +137,14 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline enableColorScheme />
       <Container
-        sx={{ m: 0, p: 0, overflowY: "hidden" }}
+        sx={{
+          m: 0,
+          p: 0,
+          overflowY: "hidden",
+          backgroundColor: "transparent",
+          position: "relative",
+          zIndex: 1,
+        }}
         maxWidth={false}
         disableGutters
       >
