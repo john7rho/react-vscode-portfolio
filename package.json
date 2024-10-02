@@ -16,10 +16,13 @@
     "@types/node": "^16.11.39",
     "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5",
+    "chroma-js": "^2.4.2",
     "react": "^18.1.0",
     "react-device-detect": "^2.2.2",
     "react-dom": "^18.1.0",
     "react-ga4": "^1.4.1",
+    "react-github-calendar": "^3.3.4",
+    "react-github-contribution-calendar": "^2.2.0",
     "react-icons": "^4.4.0",
     "react-markdown": "^8.0.3",
     "react-router-dom": "^6.3.0",
@@ -65,5 +68,6 @@
     "@types/webpack-env": "^1.17.0",
     "dotenv": "^16.0.3",
     "gh-pages": "^4.0.0"
-  }
+  },
+  "proxy": "http://localhost:3000"
 }

@@ -1,3 +1,5 @@
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import {
   Box,
   Grid,
@@ -7,16 +9,111 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { links } from "./links";
+import GitHubCalendar from "react-github-calendar";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+
+// Define the Theme type for ActivityCalendar
+type Theme = {
+  level4: string;
+  level3: string;
+  level2: string;
+  level1: string;
+  level0: string;
+};
+
+// Update the customTheme object
+const customTheme: Theme = {
+  level0: "rgba(255, 255, 255, 0.05)",
+  level1: "#0e4429",
+  level2: "#006d32",
+  level3: "#26a641",
+  level4: "#39d353",
+};
+
+const selectLastWeek = (contributions: any[]) => {
+  const oneWeekAgo = new Date();
+  oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
+  return contributions.filter((activity) => {
+    const date = new Date(activity.date);
+    return date >= oneWeekAgo;
+  });
+};
+
+interface ContributionDay {
+  date: string;
+  count: number;
+  level: 0 | 1 | 2 | 3 | 4;
+}
+
+const GitHubGraph: React.FC<{ username: string }> = ({ username }) => {
+  return (
+    <Box
+      sx={{
+        maxWidth: "100%",
+        overflowX: "auto",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        borderRadius: "6px",
+        padding: "8px",
+        backgroundColor: "transparent",
+      }}
+    >
+      <GitHubCalendar
+        username={username}
+        colorScheme="dark"
+        // Removed transformData prop to show full year
+        // Removed hideColorLegend, hideMonthLabels, and hideTotalCount props
+      />
+    </Box>
+  );
+};
+
+// Helper function to process GitHub events into contribution data
+const processEvents = (events: any[]): ContributionDay[] => {
+  const oneWeekAgo = new Date();
+  oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
+  const contributionMap = new Map<string, number>();
+
+  events.forEach((event) => {
+    const date = new Date(event.created_at);
+    if (date >= oneWeekAgo) {
+      const dateString = date.toISOString().split("T")[0];
+      contributionMap.set(
+        dateString,
+        (contributionMap.get(dateString) || 0) + 1
+      );
+    }
+  });
+
+  const contributionData: ContributionDay[] = Array.from(
+    contributionMap,
+    ([date, count]) => ({
+      date,
+      count,
+      level: Math.min(Math.floor(count / 2), 4) as 0 | 1 | 2 | 3 | 4,
+    })
+  );
+
+  return contributionData;
+};
 
 interface Props {
   setSelectedIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
+// Add this interface to define the structure of a link object
+interface LinkItem {
+  index: number;
+  title: string;
+  href: string;
+  icon: React.ReactNode;
+}
+
 export default function Home({ setSelectedIndex }: Props) {
   const { pathname } = useLocation();
+
   useEffect(() => {
     setSelectedIndex(-1);
   }, [setSelectedIndex]);
@@ -24,6 +121,23 @@ export default function Home({ setSelectedIndex }: Props) {
   useEffect(() => {
     document.title = process.env.REACT_APP_NAME!;
   }, [pathname]);
+
+  // Define the links array with the proper type
+  const links: LinkItem[] = [
+    // Add your link objects here, for example:
+    // {
+    //   index: 1,
+    //   title: "GitHub",
+    //   href: "https://github.com/yourusername",
+    //   icon: <GitHubIcon />
+    // },
+    // {
+    //   index: 2,
+    //   title: "LinkedIn",
+    //   href: "https://www.linkedin.com/in/yourprofile",
+    //   icon: <LinkedInIcon />
+    // },
+  ];
 
   return (
     <Grid
@@ -48,7 +162,7 @@ export default function Home({ setSelectedIndex }: Props) {
               justifyContent={{ xs: "center", sm: "flex-start" }}
             >
               <Typography variant="subtitle1" gutterBottom>
-                Student
+                Student at Harvard studying Statistics and Applied Math
               </Typography>
             </Grid>
             <Grid
@@ -70,6 +184,14 @@ export default function Home({ setSelectedIndex }: Props) {
                 ))}
               </Stack>
             </Grid>
+
+            {/* Updated GitHub Graph */}
+            <Box
+              mt={2}
+              sx={{ width: "100%", maxWidth: "400px", margin: "0 auto" }}
+            >
+              <GitHubGraph username="john7rho" />
+            </Box>
           </Box>
         </Stack>
       </Grid>
