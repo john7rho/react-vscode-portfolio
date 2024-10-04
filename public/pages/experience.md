@@ -2,7 +2,7 @@
 
 **Summer Analyst** @ [Lazard](https://www.lazard.com/) _(Summer 2024)_
 
-Venture Growth Banking; Worked on live deals involving semiconductor and AI infrastructure companies; Assisted on Lazard AI report
+Venture & Growth Banking; Worked on live deals involving semiconductor and AI infrastructure companies; Assisted on Lazard AI report
 
 &nbsp;
 

@@ -162,7 +162,7 @@ export default function Home({ setSelectedIndex }: Props) {
               justifyContent={{ xs: "center", sm: "flex-start" }}
             >
               <Typography variant="subtitle1" gutterBottom>
-                Student at Harvard studying Statistics and Applied Math
+                Student at Harvard studying Statistics/CS and Applied Math
               </Typography>
             </Grid>
             <Grid

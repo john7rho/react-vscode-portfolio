@@ -2,7 +2,7 @@
 
 ## Summary
 
-Student at Harvard studying Statistics and Applied Mathematics. 
+Student at Harvard studying Statistics/Computer Science (Joint A.B.) and Applied Mathematics (S.M.). 
 
 
 ## Experience
