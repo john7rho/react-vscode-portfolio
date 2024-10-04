@@ -32,7 +32,7 @@ _**Technologies Used**_: Python, NextJS, Django, Firebase
 ## Education
 
 `2021-2026` [Harvard College](https://college.harvard.edu/)
-- **AB** Statistics
+- **AB** Statistics & Computer Science (Joint Degree)
 - **(Intended) SM** Applied Mathematics
 - GPA: 3.9/4.0; Wendell Prize Nominee
 
