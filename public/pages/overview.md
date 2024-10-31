@@ -2,7 +2,7 @@
 
 ## Summary
 
-Student at Harvard studying Statistics/Computer Science (Joint A.B.) and Applied Mathematics (S.M.). 
+Student at Harvard studying Statistics/Computer Science (Joint Bachelors) and Electrical Engineering (Masters).
 
 
 ## Experience

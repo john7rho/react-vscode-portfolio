@@ -1,5 +1,11 @@
 # 🥇 Technical Coursework (Selected)
 
+## Spring 2025
+- Geometric Methods for Machine Learning (Applied Math 220 (G), Harvard)
+- Algorithms (CS 2241 (G), Harvard)
+- Sensorimotor Learning (6.8200 (G). MIT)
+- Operating Systems (CS 161, Harvard)
+
 ## Fall 2024
 - Intro to Reinforcement Learning (Stat 184, Harvard)
 - Intro to Linear Models (Stat 139, Harvard)
@@ -24,6 +30,7 @@
 ## Fall 2022
 - Intro to Probability (Stat 110, Harvard)
 - Intro to Machine Learning (6.3900, MIT)
+- Startup R&D (Eng Sci 95, Harvard)
 
 ## Spring 2022
 - Applied Linear Algebra and Big Data (Applied Math 120, Harvard)
@@ -33,3 +40,4 @@
 ## Fall 2021
 - Intermediate Microeconomics (Econ 1010a, Harvard)
 - Vector Calculus and Linear Algebra (Math 22a, Harvard)
+- Introduction to CS (CS50, Harvard)
