@@ -3,8 +3,8 @@
 ## Spring 2025
 - Geometric Methods for Machine Learning (Applied Math 220 (G), Harvard)
 - Algorithms (CS 2241 (G), Harvard)
-- Sensorimotor Learning (6.8200 (G). MIT)
-- Operating Systems (CS 161, Harvard)
+- Intro to Low-level Programming in C and Assembly (6.1903, MIT)
+- Computation Structures (6.1910, MIT)
 
 ## Fall 2024
 - Intro to Reinforcement Learning (Stat 184, Harvard)
