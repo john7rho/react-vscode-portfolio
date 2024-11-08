@@ -1,10 +1,8 @@
 # 🥇 Technical Coursework (Selected)
 
 ## Spring 2025
-- Geometric Methods for Machine Learning (Applied Math 220 (G), Harvard)
-- Algorithms (CS 2241 (G), Harvard)
-- Intro to Low-level Programming in C and Assembly (6.1903, MIT)
-- Computation Structures (6.1910, MIT)
+- Operating Systems (CS 1610, Harvard)
+- Economics and Computation (CS 1360, Harvard)
 
 ## Fall 2024
 - Intro to Reinforcement Learning (Stat 184, Harvard)
