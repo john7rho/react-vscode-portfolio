@@ -2,7 +2,7 @@
 
 ## Summary
 
-Student at Harvard studying Statistics/Computer Science (Joint Bachelors) and Computer Science (Masters).
+Student at Harvard studying Statistics/Computer Science (Joint Bachelors).
 
 
 ## Experience
@@ -15,7 +15,7 @@ Venture & Growth Banking; Developed presentations and research reports for AI co
 
 **Product Management Intern** @ [StubHub](https://www.stubhub.com/) _(Fall 2023)_
 
-Customer Experiences; Built Python scripts and Excel models for service metrics and finance teams
+Customer Experiences; Built Python scripts and Excel models for service metrics and finance teams; Part of Bessemer VP Fellowship
 
 _**Technologies Used**_: SQL
 
@@ -61,5 +61,5 @@ Won Ingenuity Award ($2500 prize) for hearing aid startup; only undergraduate te
 
 ## Languages
 **English**: Native
-**French**: Professional proficiency
-**Korean**: Basic profiency
+**French**: Basic proficiency (can order stuff at a restaurant probably)
+**Korean**: Basic profiency (can call my grandparents and tell them stuff)
