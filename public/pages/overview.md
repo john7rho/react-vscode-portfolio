@@ -2,7 +2,7 @@
 
 ## Summary
 
-Student at Harvard studying Statistics/Computer Science (Joint Bachelors).
+Student at Harvard studying Statistics/Computer Science (Joint Bachelors) with secondary field in Mathematical Sciences.
 
 
 ## Experience

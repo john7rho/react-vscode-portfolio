@@ -3,6 +3,7 @@
 ## Spring 2025
 - Operating Systems (CS 1610, Harvard)
 - Economics and Computation (CS 1360, Harvard)
+- Sets, Groups, and Geometry (Math 101, Harvard)
 
 ## Fall 2024
 - Intro to Reinforcement Learning (Stat 184, Harvard)
