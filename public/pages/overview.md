@@ -9,7 +9,7 @@ Student at Harvard studying Statistics/Computer Science (Joint Bachelors) with s
 
 **Summer Analyst** @ [Lazard](https://www.lazard.com/) _(Summer 2024)_
 
-Venture & Growth Banking; Developed presentations and research reports for AI companies; Assisted in live deal for tier-one AI infrastructure company raising $1XXm Series C
+Venture & Growth Banking; Developed presentations and research reports for AI companies; Assisted in live deal for Python AI infrastructure company raising $1XXm Series C
 
 &nbsp;
 

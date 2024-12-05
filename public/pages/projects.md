@@ -1,8 +1,5 @@
 # 🧪 Projects
 
-## [Productivity Tracker Dashboard](Coming Soon) 🔗
-- Details to come
-
 ## [Surfa Travel](https://surfatravel.com/) 🔗
 - Created site to match couch-surfing students to hosts
 - AWS Lambda, DynamoDB, React JS (Material UI)
