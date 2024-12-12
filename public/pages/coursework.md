@@ -16,6 +16,7 @@
 ## Spring 2024
 - Intro to Statistical Inference (Stat 111, Harvard)
 - Intro to Stochastic Processes (Stat 171, Harvard)
+- Entrepreneurship Theory (Econ 2726 (G), Harvard)
 
 ## Winter 2024
 - Econometrics (Yonsei Winter Session)

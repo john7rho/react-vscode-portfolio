@@ -1,5 +1,11 @@
 # 🧪 Projects
 
+# Academic / Research
+
+- *coming soon*
+
+# Personal
+
 ## [Surfa Travel](https://surfatravel.com/) 🔗
 - Created site to match couch-surfing students to hosts
 - AWS Lambda, DynamoDB, React JS (Material UI)

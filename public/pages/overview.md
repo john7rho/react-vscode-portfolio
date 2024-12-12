@@ -4,6 +4,8 @@
 
 Student at Harvard studying Statistics/Computer Science (Joint Bachelors) with secondary field in Mathematical Sciences.
 
+I am interested in research.
+
 
 ## Experience
 
@@ -33,10 +35,10 @@ _**Technologies Used**_: Python, NextJS, Django, Firebase
 
 `2021-2026` [Harvard College](https://college.harvard.edu/)
 - **AB** Statistics & Computer Science (Joint Degree)
-- GPA: 3.9/4.0; Wendell Prize Nominee
+- Wendell Prize Nominee (Top 15% of freshman class)
 
 `2020-2022` [Plano West Senior High School](https://www.pisd.edu/site/default.aspx?PageType=3&DomainID=293&ModuleInstanceID=4433&ViewID=6446EE88-D30C-497E-9316-3F8874B3E108&RenderLoc=0&FlexDataID=98016&PageID=1722)
-- GPA: 4.77/4.00; Valedictorian
+- Valedictorian
 
 ## Skills
 
