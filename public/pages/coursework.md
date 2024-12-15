@@ -2,9 +2,7 @@
 
 ## Spring 2025
 - Operating Systems (CS 1610, Harvard)
-- Economics and Computation (CS 1360, Harvard)
 - Algorithms (CS 2241 (G), Harvard)
-- Computational Learning Theory (CS 2280 (G), Harvard) 
 
 ## Fall 2024
 - Intro to Reinforcement Learning (Stat 184, Harvard)
