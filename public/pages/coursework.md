@@ -1,8 +1,7 @@
 # 🥇 Technical Coursework (Selected)
 
 ## Spring 2025
-- Operating Systems (CS 1610, Harvard)
-- Algorithms (CS 2241 (G), Harvard)
+TBD!
 
 ## Fall 2024
 - Intro to Reinforcement Learning (Stat 184, Harvard)
