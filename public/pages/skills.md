@@ -5,10 +5,6 @@
 
 ## Programming languages
 - Python
-- JavaScript/TypeScript
-  - React.js, NextJS
-- C++
-- SQL
 
 ## Databases
 - AWS DynamoDB
@@ -20,18 +16,16 @@
 - Heroku
 - Docker
 
-## Vcs
+## VCS
 - Git
 
 ## Quantitative
 - Machine Learning
   - TensorFlow / Keras, PyTorch
-    - Decision Trees / Random Forests, Multilayer Perceptrons, Convolutional Neural Networks
+    - Decision Trees / Random Forests, Multilayer Perceptrons, Convolutional Neural Networks, Reinforcement Learning
 - Statistics
   - Monte Carlo Methods, Markov Decision Processes
 
 ## Finance
 - Excel (basic)
-- Modeling
-  - LBOs, DCFs
-- Swing Trading
+- Modeling (WallStreetPrep Certified)

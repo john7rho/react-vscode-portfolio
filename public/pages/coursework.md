@@ -1,7 +1,11 @@
 # 🥇 Technical Coursework (Selected)
 
 ## Spring 2025
-TBD!
+- Algorithms (CS 2241 (G), Harvard)
+- Computational Learning Theory (CS 2280 (G), Harvard)
+- Distributed Systems (CS 2620 (G), Harvard)
+- Diffusion Models (6.S982 (G), MIT)
+
 
 ## Fall 2024
 - Intro to Reinforcement Learning (Stat 184, Harvard)
