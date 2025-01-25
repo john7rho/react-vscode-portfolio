@@ -3,7 +3,7 @@
 ## Spring 2025
 - Algorithms (CS 2241 (G), Harvard)
 - Computational Learning Theory (CS 2280 (G), Harvard)
-- Distributed Systems (CS 2620 (G), Harvard)
+- Operating Systems (CS 1610 (G), Harvard)
 - Diffusion Models (6.S982 (G), MIT)
 
 
