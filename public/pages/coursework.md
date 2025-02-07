@@ -1,8 +1,9 @@
 # 🥇 Technical Coursework (Selected)
 
 ## Spring 2025
-- Algorithms (CS 2241 (G), Harvard)
+- Advanced Algorithms (CS 2241 (G), Harvard)
 - Computational Learning Theory (CS 2280 (G), Harvard)
+- Operating Systems (CS 1610, Harvard)
 
 
 ## Fall 2024
