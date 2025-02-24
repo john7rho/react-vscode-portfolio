@@ -3,7 +3,6 @@
 ## Spring 2025
 - Advanced Algorithms (CS 2241 (G), Harvard)
 - Computational Learning Theory (CS 2280 (G), Harvard)
-- Operating Systems (CS 1610, Harvard)
 
 
 ## Fall 2024
