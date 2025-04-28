@@ -4,63 +4,22 @@
 
 Student at Harvard studying Statistics/Computer Science (Joint Bachelors) with secondary field in Mathematical Sciences.
 
-I am interested in research.
+I am interested in entrepreneurship. I am currently working on a technical consultancy.
 
 
 ## Experience
 
-**Summer Analyst** @ [Lazard](https://www.lazard.com/) _(Summer 2024)_
+**Summer Analyst** @ [Lazard](https://www.lazard.com/) _(2024)_
 
-Venture & Growth Banking; Developed presentations and research reports for AI companies; Assisted in live deal for Python AI infrastructure company raising $1XXm Series C
+Venture & Growth Banking; Developed presentations and research reports in live deal for Python AI infrastructure company raising $1XXm Series C
 
-&nbsp;
+**Product Management Intern** @ [StubHub](https://www.stubhub.com/) _(2023)_
 
-**Product Management Intern** @ [StubHub](https://www.stubhub.com/) _(Fall 2023)_
-
-Built Python scripts and Excel models for service metrics and finance teams; Part of Bessemer VP Fellowship
-
-_**Technologies Used**_: SQL
+Built Python scripts and Excel models for customer service metrics and finance teams, pre-IPO (2025); Part of Bessemer VP Fellowship
 
 &nbsp;
-
-**Engineering Intern** @ [Black Sheep Foods](https://blacksheepfoods.com/) _(Summer 2023)_
-
-Built flavor prediction dashboard; Part of Bessemer Venture Partners Fellowship
-
-_**Technologies Used**_: Python, NextJS, Django, Firebase
-
-&nbsp;
-
-## Education
-
-`2021-2026` [Harvard College](https://college.harvard.edu/)
-- **AB** Statistics & Computer Science (Joint Degree)
-- Wendell Prize Nominee (Top 15% of freshman class)
-
-`2020-2022` [Plano West Senior High School](https://www.pisd.edu/site/default.aspx?PageType=3&DomainID=293&ModuleInstanceID=4433&ViewID=6446EE88-D30C-497E-9316-3F8874B3E108&RenderLoc=0&FlexDataID=98016&PageID=1722)
-- Valedictorian
-
-## Skills
-
-### General Tech Stacks and Technologies
-- Web Development (Frontend & Backend)
-- Machine Learning
-  - TensorFlow/Keras
-
-### Programming languages
-- Python
-- JavaScript/TypeScript
-  - React.js
-- SQL
-
-## Coursework
-- Data Structures, Machine Learning, Micreconomics
-
-## Accomplishments
-**Harvard President's Innovation Challenge Winner** @ [Harvard Innovation Labs]() _(May 2022)_
-Won Ingenuity Award ($2500 prize) for hearing aid startup; only undergraduate team awarded
 
 ## Languages
 **English**: Native
-**French**: Basic proficiency (can order stuff at a restaurant probably)
-**Korean**: Basic profiency (can call my grandparents and tell them stuff)
+**Korean**: Profient (can call my grandparents and tell them stories)
+**French**: Proficient but rusty (can order stuff at a restaurant, and they reply back in French without frowning)

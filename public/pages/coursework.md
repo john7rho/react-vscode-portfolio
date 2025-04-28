@@ -1,5 +1,9 @@
 # 🥇 Technical Coursework (Selected)
 
+## Fall 2025
+- Systems Programming (CS 61, Harvard)
+- Theoretical CS (CS 121, Harvard)
+
 ## Spring 2025
 - Advanced Algorithms (CS 2241 (G), Harvard)
 - Computational Learning Theory (CS 2280 (G), Harvard)
@@ -17,11 +21,8 @@
 - Intro to Stochastic Processes (Stat 171, Harvard)
 - Entrepreneurship Theory (Econ 2726 (G), Harvard)
 
-## Winter 2024
-- Econometrics (Yonsei Winter Session)
-
 ## Fall 2023
-- Gap Semester
+- Econometrics (Yonsei University in Seoul, KR)
 
 ## Spring 2023
 - Data Structures and Algorithms (CS 124, Harvard)
