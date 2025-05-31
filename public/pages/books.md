@@ -17,11 +17,9 @@ also compiling
 My Favorite: https://open.spotify.com/playlist/2s49hfFs7Mlx8WWKBDUoCo?si=04a0a76f4efc4c6b
 
 # 🏙️ Favorite Cities (as of April 2025, in no particular order)
-Paris
-- onion soup so good
-Istanbul
-- kebab
-San Francisco
-- nature and weather
-Seoul
-- food
+| City | Highlights |
+| --- | --- |
+| Paris | onion soup so good |
+| Istanbul | kebab |
+| San Francisco | nature and weather |
+| Seoul | food |
