@@ -7,6 +7,7 @@ import { VscFiles, VscSettingsGear } from "react-icons/vsc";
 import { BiGitBranch } from "react-icons/bi";
 import Divider from "@mui/material/Divider";
 import { links } from "../pages/links";
+import { useNavigate } from "react-router-dom";
 
 // Update the keyframes definition
 const pulse = keyframes`
@@ -57,6 +58,7 @@ export default function Sidebar({
   darkMode,
   handleThemeChange,
 }: Props) {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -238,6 +240,7 @@ export default function Sidebar({
           }}
           display="flex"
           justifyContent="center"
+          onClick={() => navigate('/settings')}
         >
           <Box
             mt={0.7}
