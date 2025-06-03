@@ -7,6 +7,7 @@ import { VscFiles, VscSettingsGear } from "react-icons/vsc";
 import { BiGitBranch } from "react-icons/bi";
 import Divider from "@mui/material/Divider";
 import { links } from "../pages/links";
+import { useNavigate } from "react-router-dom";
 
 // Update the keyframes definition
 const pulse = keyframes`
@@ -38,6 +39,12 @@ const bubbleAnimation = keyframes`
   }
 `;
 
+const shine = keyframes`
+  0% { filter: brightness(1); }
+  50% { filter: brightness(2); }
+  100% { filter: brightness(1); }
+`;
+
 interface Props {
   expanded: boolean;
   setExpanded: React.Dispatch<React.SetStateAction<boolean>>;
@@ -51,6 +58,7 @@ export default function Sidebar({
   darkMode,
   handleThemeChange,
 }: Props) {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -232,8 +240,14 @@ export default function Sidebar({
           }}
           display="flex"
           justifyContent="center"
+          onClick={() => navigate('/settings')}
         >
-          <Box mt={0.7}>
+          <Box
+            mt={0.7}
+            sx={{
+              animation: `${shine} 2s infinite`,
+            }}
+          >
             <VscSettingsGear />
           </Box>
         </Box>

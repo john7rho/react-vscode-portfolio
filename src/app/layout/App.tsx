@@ -16,6 +16,7 @@ import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import AppButtons from "./AppButtons";
 import MDContainer from "../components/MDContainer";
 import Home from "../pages/Home";
+import SettingsPage from "../pages/SettingsPage";
 import { pages } from "../pages/pages";
 import usePageTracking from "../hooks/usePageTracking";
 import { isBrowser } from "react-device-detect";
@@ -226,6 +227,7 @@ export default function App() {
                       element={<MDContainer path={`./pages/${name}`} />}
                     />
                   ))}
+                  <Route path="/settings" element={<SettingsPage />} />
                   <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
               </Grid>
