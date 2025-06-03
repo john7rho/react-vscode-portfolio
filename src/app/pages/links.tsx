@@ -5,6 +5,7 @@ import {
   FaLinkedin,
   FaEnvelope,
 } from "react-icons/fa";
+import { SiSubstack } from "react-icons/si";
 
 export const links = [
   {
@@ -30,5 +31,11 @@ export const links = [
     title: "Find me on Medium",
     href: "https://johnrho.medium.com/",
     icon: <FaMedium />,
+  },
+  {
+    index: 4,
+    title: "Check out my Substack",
+    href: "https://substack.com/@johnrho",
+    icon: <SiSubstack />,
   },
 ];
