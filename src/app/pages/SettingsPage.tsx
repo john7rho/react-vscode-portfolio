@@ -19,10 +19,24 @@ export default function SettingsPage() {
       <Box display="flex" flexDirection={{ xs: "column", sm: "row" }} gap={4}>
         <Box flexShrink={0}>
           <img
-            src="https://drive.google.com/uc?export=view&id=1HqM4uumA8dQER9lwP3ZpgLf29zdhsnGM"
+            src="/rho_boston.jpg"
             alt="Your Photo Here"
             style={{ borderRadius: 8, width: 350, height: "auto" }}
           />
+          <Typography
+            variant="subtitle1"
+            color="text.secondary"
+            sx={{ mt: 1, textAlign: "center" }}
+          >
+            May 2025 // Boston, MA
+          </Typography>
+          <Typography
+            variant="caption"
+            color="text.secondary"
+            sx={{ mt: 0.5, textAlign: "center", fontSize: "0.75rem" }}
+          >
+            Photo credit: Raj Sastry
+          </Typography>
         </Box>
         <Box>
           <Typography variant="h5" gutterBottom>
@@ -49,13 +63,13 @@ export default function SettingsPage() {
             every major decision I’ve made.
           </Typography>
           <Typography paragraph>
-            During college, this mindset led me to seek experiences across vastly
-            different domains. At StubHub, a company poised on the exciting
-            precipice of an IPO, I immersed myself in product development—learning
-            how consumer needs translate into features that millions of people
-            use to create memories at concerts and games. The energy was
-            palpable; every day brought new challenges as we scaled systems and
-            refined experiences for an ever-growing audience.
+            During college, this mindset led me to seek experiences across
+            vastly different domains. At StubHub, a company poised on the
+            exciting precipice of an IPO, I immersed myself in product
+            development—learning how consumer needs translate into features that
+            millions of people use to create memories at concerts and games. The
+            energy was palpable; every day brought new challenges as we scaled
+            systems and refined experiences for an ever-growing audience.
           </Typography>
           <Typography paragraph>
             From there, I pivoted to investment banking at Lazard, where I
@@ -71,25 +85,25 @@ export default function SettingsPage() {
           </Typography>
           <Typography paragraph>
             Today, I’ve planted myself across three dynamic cities—San
-            Francisco, Boston, and New York—building a technical consultancy that
-            embodies this philosophy of exploration. Each city offers its own
-            unique ecosystem: San Francisco’s relentless innovation, Boston’s
-            academic depth, and New York’s financial sophistication. Moving
-            between these worlds, I’ve discovered that the most impactful
+            Francisco, Boston, and New York—building a technical consultancy
+            that embodies this philosophy of exploration. Each city offers its
+            own unique ecosystem: San Francisco’s relentless innovation,
+            Boston’s academic depth, and New York’s financial sophistication.
+            Moving between these worlds, I’ve discovered that the most impactful
             solutions emerge when we bridge different domains of knowledge and
             connect diverse communities of builders.
           </Typography>
           <Typography paragraph>
             We’re living through what feels like a fundamental transformation in
             human capability—artificial intelligence isn’t just another
-            technological advancement, it’s a paradigm shift that’s reshaping how
-            we think, create, and collaborate. Like the printing press or the
-            internet before it, AI represents a new chapter in our collective
-            story, one where the boundaries between human insight and machine
-            capability blur in extraordinary ways. Every conversation I have,
-            every project I take on, is touched by this reality that we’re not
-            just building software anymore—we’re crafting tools that augment human
-            potential itself.
+            technological advancement, it’s a paradigm shift that’s reshaping
+            how we think, create, and collaborate. Like the printing press or
+            the internet before it, AI represents a new chapter in our
+            collective story, one where the boundaries between human insight and
+            machine capability blur in extraordinary ways. Every conversation I
+            have, every project I take on, is touched by this reality that we’re
+            not just building software anymore—we’re crafting tools that augment
+            human potential itself.
           </Typography>
           <Typography paragraph>
             What excites me most is how this moment demands exactly the kind of
@@ -106,9 +120,9 @@ export default function SettingsPage() {
             while building on the foundations we’ve already established. Whether
             I’m working with a startup founder in Boston, collaborating with
             researchers in San Francisco, or meeting with investors in New York,
-            I’m reminded that our differences aren’t barriers to overcome—they’re
-            bridges to cross, leading us toward solutions we could never have
-            imagined alone.
+            I’m reminded that our differences aren’t barriers to
+            overcome—they’re bridges to cross, leading us toward solutions we
+            could never have imagined alone.
           </Typography>
           <Typography paragraph>
             This is the adventure I find myself on: using the

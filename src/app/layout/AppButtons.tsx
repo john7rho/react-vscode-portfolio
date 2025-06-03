@@ -1,6 +1,6 @@
 import { Button, Box, Paper } from "@mui/material";
 import React from "react";
-import { VscMarkdown, VscChromeClose } from "react-icons/vsc";
+import { VscMarkdown, VscChromeClose, VscSettingsGear } from "react-icons/vsc";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import { Container } from "@mui/system";
@@ -80,6 +80,13 @@ export default function AppButtons({
   }
 
   function renderPageButton(index: number, name: string, route: string) {
+    const getFileIcon = () => {
+      if (route === "/settings") {
+        return <VscSettingsGear />;
+      }
+      return <VscMarkdown />;
+    };
+
     return (
       <Box
         key={index}
@@ -115,7 +122,7 @@ export default function AppButtons({
           <Box
             sx={{ color: "#6997d5", width: 20, height: 20, mr: 0.4, ml: -1 }}
           >
-            <VscMarkdown />
+            {getFileIcon()}
           </Box>
           {name}
           <Box

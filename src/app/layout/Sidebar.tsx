@@ -9,22 +9,6 @@ import Divider from "@mui/material/Divider";
 import { links } from "../pages/links";
 import { useNavigate } from "react-router-dom";
 
-// Update the keyframes definition
-const pulse = keyframes`
-  0% {
-    background-size: 100% 100%;
-    transform: scale(1);
-  }
-  50% {
-    background-size: 120% 120%;
-    transform: scale(1.02);
-  }
-  100% {
-    background-size: 100% 100%;
-    transform: scale(1);
-  }
-`;
-
 const bubbleAnimation = keyframes`
   0% {
     transform: translateY(100%) scale(0);
@@ -50,6 +34,10 @@ interface Props {
   setExpanded: React.Dispatch<React.SetStateAction<boolean>>;
   darkMode: boolean;
   handleThemeChange: () => void;
+  setSelectedIndex: React.Dispatch<React.SetStateAction<number>>;
+  setCurrentComponent: React.Dispatch<React.SetStateAction<string>>;
+  visiblePageIndexs: number[];
+  setVisiblePageIndexs: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
 export default function Sidebar({
@@ -57,6 +45,10 @@ export default function Sidebar({
   setExpanded,
   darkMode,
   handleThemeChange,
+  setSelectedIndex,
+  setCurrentComponent,
+  visiblePageIndexs,
+  setVisiblePageIndexs,
 }: Props) {
   const navigate = useNavigate();
   return (
@@ -240,7 +232,15 @@ export default function Sidebar({
           }}
           display="flex"
           justifyContent="center"
-          onClick={() => navigate('/settings')}
+          onClick={() => {
+            if (!visiblePageIndexs.includes(6)) {
+              const newIndexs = [...visiblePageIndexs, 6];
+              setVisiblePageIndexs(newIndexs);
+            }
+            navigate("/settings");
+            setSelectedIndex(6);
+            setCurrentComponent("sidebar");
+          }}
         >
           <Box
             mt={0.7}

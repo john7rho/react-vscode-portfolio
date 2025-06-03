@@ -50,12 +50,6 @@ export default function App() {
   const paletteType = darkMode ? "dark" : "light";
   usePageTracking();
 
-  const _animateGradient = keyframes`
-    0% { background-position: 0% 50% }
-    50% { background-position: 100% 50% }
-    100% { background-position: 0% 50% }
-  `;
-
   const theme = createTheme({
     palette: {
       mode: paletteType,
@@ -158,6 +152,10 @@ export default function App() {
                 expanded={expanded}
                 darkMode={darkMode}
                 handleThemeChange={handleThemeChange}
+                setSelectedIndex={setSelectedIndex}
+                setCurrentComponent={setCurrentComponent}
+                visiblePageIndexs={visiblePageIndexs}
+                setVisiblePageIndexs={setVisiblePageIndexs}
               />
             </Grid>
             {expanded && (
@@ -220,14 +218,24 @@ export default function App() {
                     path="/"
                     element={<Home setSelectedIndex={setSelectedIndex} />}
                   />
-                  {pages.map(({ index, name, route }) => (
-                    <Route
-                      key={index}
-                      path={route}
-                      element={<MDContainer path={`./pages/${name}`} />}
-                    />
-                  ))}
-                  <Route path="/settings" element={<SettingsPage />} />
+                  {pages.map(({ index, name, route }) => {
+                    if (route === "/settings") {
+                      return (
+                        <Route
+                          key={index}
+                          path={route}
+                          element={<SettingsPage />}
+                        />
+                      );
+                    }
+                    return (
+                      <Route
+                        key={index}
+                        path={route}
+                        element={<MDContainer path={`/pages/${name}`} />}
+                      />
+                    );
+                  })}
                   <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
               </Grid>

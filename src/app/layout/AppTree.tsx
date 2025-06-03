@@ -1,12 +1,12 @@
 import * as React from "react";
 import TreeView from "@mui/lab/TreeView";
+import TreeItem from "@mui/lab/TreeItem";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import TreeItem from "@mui/lab/TreeItem";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useTheme } from "@mui/material/styles";
-import { VscMarkdown } from "react-icons/vsc";
+import { VscMarkdown, VscSettingsGear } from "react-icons/vsc";
 
 interface Page {
   index: number;
@@ -75,8 +75,6 @@ export default function AppTree({
       defaultExpandIcon={<ChevronRightIcon />}
       sx={{ minWidth: 220 }}
       defaultExpanded={["-1"]}
-
-      // sx={{ height: 240, flexGrow: 1, maxWidth: 400, overflowY: 'auto' }}
     >
       <TreeItem
         nodeId="-1"
@@ -87,30 +85,39 @@ export default function AppTree({
           setSelectedIndex(-1);
         }}
       >
-        {pages.map(({ index, name, route }) => (
-          <TreeItem
-            key={index}
-            nodeId={index.toString()}
-            label={name}
-            sx={{
-              color: renderTreeItemColor(index),
-              backgroundColor: renderTreeItemBgColor(index),
-              "&& .Mui-selected": {
+        {pages.map(({ index, name, route }) => {
+          const getFileIcon = () => {
+            if (route === "/settings") {
+              return <VscSettingsGear color="#6997d5" />;
+            }
+            return <VscMarkdown color="#6997d5" />;
+          };
+
+          return (
+            <TreeItem
+              key={index}
+              nodeId={index.toString()}
+              label={name}
+              sx={{
+                color: renderTreeItemColor(index),
                 backgroundColor: renderTreeItemBgColor(index),
-              },
-            }}
-            icon={<VscMarkdown color="#6997d5" />}
-            onClick={() => {
-              if (!visiblePageIndexs.includes(index)) {
-                const newIndexs = [...visiblePageIndexs, index];
-                setVisiblePageIndexs(newIndexs);
-              }
-              navigate(route);
-              setSelectedIndex(index);
-              setCurrentComponent("tree");
-            }}
-          />
-        ))}
+                "&& .Mui-selected": {
+                  backgroundColor: renderTreeItemBgColor(index),
+                },
+              }}
+              icon={getFileIcon()}
+              onClick={() => {
+                if (!visiblePageIndexs.includes(index)) {
+                  const newIndexs = [...visiblePageIndexs, index];
+                  setVisiblePageIndexs(newIndexs);
+                }
+                navigate(route);
+                setSelectedIndex(index);
+                setCurrentComponent("tree");
+              }}
+            />
+          );
+        })}
       </TreeItem>
     </TreeView>
   );
