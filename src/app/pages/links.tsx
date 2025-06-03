@@ -22,7 +22,7 @@ export const links = [
   {
     index: 2,
     title: "Contact me via email",
-    href: "mailto:john@listenin.one",
+    href: "mailto:john@arroagent.com",
     icon: <FaEnvelope />,
   },
   {
