@@ -38,6 +38,12 @@ const bubbleAnimation = keyframes`
   }
 `;
 
+const shine = keyframes`
+  0% { filter: brightness(1); }
+  50% { filter: brightness(2); }
+  100% { filter: brightness(1); }
+`;
+
 interface Props {
   expanded: boolean;
   setExpanded: React.Dispatch<React.SetStateAction<boolean>>;
@@ -233,7 +239,12 @@ export default function Sidebar({
           display="flex"
           justifyContent="center"
         >
-          <Box mt={0.7}>
+          <Box
+            mt={0.7}
+            sx={{
+              animation: `${shine} 2s infinite`,
+            }}
+          >
             <VscSettingsGear />
           </Box>
         </Box>
