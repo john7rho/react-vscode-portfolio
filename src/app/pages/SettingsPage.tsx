@@ -13,20 +13,20 @@ export default function SettingsPage() {
   return (
     <Container sx={{ mt: 2 }}>
       <Typography variant="h4" gutterBottom>
-        Settings
+        Me
       </Typography>
       <Divider sx={{ mb: 2 }} />
       <Box display="flex" flexDirection={{ xs: "column", sm: "row" }} gap={4}>
         <Box flexShrink={0}>
           <img
-            src="https://via.placeholder.com/150"
+            src="https://drive.google.com/uc?export=view&id=1HqM4uumA8dQER9lwP3ZpgLf29zdhsnGM"
             alt="Your Photo Here"
-            style={{ borderRadius: 8 }}
+            style={{ borderRadius: 8, width: 350, height: "auto" }}
           />
         </Box>
         <Box>
           <Typography variant="h5" gutterBottom>
-            Bridges Across Boundaries: A Journey of Exploration and Innovation
+            Bridges Across Boundaries
           </Typography>
           <Typography paragraph>
             At twenty-two, I carry within me the wide-open spirit of Texas—that
