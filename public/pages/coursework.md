@@ -1,13 +1,8 @@
 # 🥇 Technical Coursework (Selected)
 
-## Fall 2025
-- Systems Programming (CS 61, Harvard)
-- Theoretical CS (CS 121, Harvard)
-
 ## Spring 2025
 - Advanced Algorithms (CS 2241 (G), Harvard)
 - Computational Learning Theory (CS 2280 (G), Harvard)
-
 
 ## Fall 2024
 - Intro to Reinforcement Learning (Stat 184, Harvard)
