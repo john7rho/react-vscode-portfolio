@@ -1,11 +1,7 @@
 {
-  "functions": {
-    "app/api/**/*.js": {
-      "runtime": "nodejs22.x"
-    }
-  },
   "buildCommand": "npm run build",
   "outputDirectory": "build",
   "framework": "create-react-app",
-  "installCommand": "npm install"
+  "installCommand": "npm install",
+  "nodeVersion": "22.x"
 }
