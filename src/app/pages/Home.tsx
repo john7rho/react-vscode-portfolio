@@ -253,13 +253,13 @@ export default function Home({ setSelectedIndex }: Props) {
                 </Box>
                 If you work in real estate, my company site is{" "}
                 <Link
-                  href="https://arroagent.com"
+                  href="https://northbea.ch"
                   target="_blank"
                   underline="hover"
                   color="inherit"
                   sx={{ fontFamily: "JetBrains Mono" }}
                 >
-                  arroagent.com
+                  northbea.ch
                 </Link>
               </Typography>
             </Box>
