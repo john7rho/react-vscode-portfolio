@@ -1,32 +1,31 @@
 # 💻 Skills
 
 ## General Tech Stacks
-- Architecture Design
-- Desktop App Development
 - Web Development (Frontend & Backend)
 
 ## Programming languages
-- C# .NET
 - Python
-- JavaScript/TypeScript
-  - React.js
-- T-SQL
-- Go
-- C++
-- Java
-- VB.NET/VBA
 
 ## Databases
-- MSSQL
-- PostgreSQL
-- MySQL
+- AWS DynamoDB
 - SQLite
+- Redis
 
-## Cloud
-- Azure
-- GCP
+## Cloud/DevOps
+- AWS/GCP
 - Heroku
-- Render
+- Docker
 
-## Vcs
+## VCS
 - Git
+
+## Quantitative
+- Machine Learning
+  - TensorFlow / Keras, PyTorch
+    - Decision Trees / Random Forests, Multilayer Perceptrons, Convolutional Neural Networks, Reinforcement Learning
+- Statistics
+  - Monte Carlo Methods, Markov Decision Processes
+
+## Finance
+- Excel (basic)
+- Modeling (WallStreetPrep Certified)

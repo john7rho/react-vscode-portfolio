@@ -1,25 +1,25 @@
 # 👨‍💻 Experience
 
-**Software Developer** @ [Ernst & Young](https://www.ey.com/) _(Nov 2018 - Nov 2021)_
+**Summer Analyst** @ [Lazard](https://www.lazard.com/) _(Summer 2024)_
 
-Completed full lifecycle application development to enterprise business applications including requirement analysis, system design, development, unit testing, implementation, testing support, performance tuning, maintenance, and post-production support.
-- Detailed achievements:
-  - Collaborated with colleagues from worldwide to implement the Disaster Recovery Project. Completed ahead of the original schedule and saved budget up to 30%.
-  - Optimized deployment process and reduced manual work to accelerate product deployment by over 70%.
-  - Delivered virtual and live classroom training for employees(the cumulative number of trainees exceeded 500).
-- _**Technologies used:**_ C#, MSSQL, Python, React.js
+Venture & Growth Banking; Worked on live deals involving semiconductor and AI infrastructure companies; Assisted on Lazard AI report
 
 &nbsp;
 
-**Staff Auditor** @ [Deloitte & Touche](https://www2.deloitte.com/global/en.html) _(July 2017 - Nov 2018)_
+**Product Management Intern** @ [StubHub](https://www.stubhub.com/) _(Fall 2023)_
 
-Planned and conducted operational and ﬁnancial audits to conﬁrm ﬁnancial statements are fairly presented in alignment with IFRS.
-- Detailed achievements:
-  - Delivered internal audit projects for major clients in the manufacturing industry with a focus on gap assessments/reviews of business processes and internal control.
-  - Supervised assigned auditing staffs to evaluate performance and maintain standards.
+Customer Experiences
+
+_**Technologies Used**_: SQL
 
 &nbsp;
 
-**Audit Intern** @ [KPMG](https://home.kpmg/) _(July 2015 - July 2015)_
+**Data Analytics Intern** @ [Black Sheep Foods](https://blacksheepfoods.com/) _(Summer 2023)_
 
-Performed analytical procedures and analyses to detect unusual ﬁnancial relationships.
+Part of Bessemer Venture Partners Fellowship (20-student cohort, 1% acceptance rate)
+Developed NextJS dashboard to guide flavor profile prediction for research scientists
+Developed high-accuracy Random Forest Regressor model based on amino acid inputs
+
+_**Technologies Used**_: Django, Python, SKLearn, TensorFlow, NextJS
+
+&nbsp;
