@@ -51,6 +51,9 @@ export default function App() {
   usePageTracking();
 
   const theme = createTheme({
+    typography: {
+      fontFamily: '"JetBrains Mono", "Roboto", "Helvetica", "Arial", sans-serif',
+    },
     palette: {
       mode: paletteType,
       background: {

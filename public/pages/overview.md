@@ -19,6 +19,11 @@ Built Python scripts and Excel models for customer service metrics and finance t
 
 &nbsp;
 
+## Honors
+Coca-Cola Scholar, Human Capital Fellow, Z Fellow, Pear VC Garage Fellow, Bessemer VP Fellow
+
+&nbsp;
+
 ## Languages
 **English**: Native
 **Korean**: Profient (can call my grandparents and tell them stories)
