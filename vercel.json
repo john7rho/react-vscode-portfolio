@@ -3,7 +3,6 @@
   "outputDirectory": "build",
   "framework": "create-react-app",
   "installCommand": "npm install",
-  "nodeVersion": "22.x",
   "builds": [
     {
       "src": "package.json",
