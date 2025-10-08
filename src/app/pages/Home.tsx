@@ -251,7 +251,7 @@ export default function Home({ setSelectedIndex }: Props) {
                 >
                   {">>>"}
                 </Box>
-                If you work in real estate, check out{" "}
+                {/* If you work in real estate, check out{" "}
                 <Link
                   href="https://northbea.ch"
                   target="_blank"
@@ -260,7 +260,7 @@ export default function Home({ setSelectedIndex }: Props) {
                   sx={{ fontFamily: "JetBrains Mono" }}
                 >
                   northbea.ch
-                </Link>
+                </Link> */}
               </Typography>
             </Box>
           </Box>
