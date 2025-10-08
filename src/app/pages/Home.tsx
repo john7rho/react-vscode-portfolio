@@ -241,7 +241,7 @@ export default function Home({ setSelectedIndex }: Props) {
                 color="text.secondary"
                 sx={{ display: "inline" }}
               >
-                <Box
+                {/* <Box
                   component="span"
                   sx={{
                     animation: `${pulseLeftRight} 3s ease-in-out infinite`,
@@ -250,7 +250,7 @@ export default function Home({ setSelectedIndex }: Props) {
                   }}
                 >
                   {">>>"}
-                </Box>
+                </Box> */}
                 {/* If you work in real estate, check out{" "}
                 <Link
                   href="https://northbea.ch"
