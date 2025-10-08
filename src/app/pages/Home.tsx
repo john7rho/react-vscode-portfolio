@@ -251,7 +251,7 @@ export default function Home({ setSelectedIndex }: Props) {
                 >
                   {">>>"}
                 </Box>
-                If you work in real estate, my company site is{" "}
+                If you work in real estate, check out{" "}
                 <Link
                   href="https://northbea.ch"
                   target="_blank"
