@@ -20,7 +20,6 @@ import SettingsPage from "../pages/SettingsPage";
 import { pages } from "../pages/pages";
 import usePageTracking from "../hooks/usePageTracking";
 import { isBrowser } from "react-device-detect";
-import { keyframes } from "@mui/system";
 
 interface Page {
   index: number;
@@ -52,7 +51,31 @@ export default function App() {
 
   const theme = createTheme({
     typography: {
-      fontFamily: '"JetBrains Mono", "Roboto", "Helvetica", "Arial", sans-serif',
+      fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
+      fontWeightLight: 300,
+      fontWeightRegular: 400,
+      fontWeightMedium: 500,
+      fontWeightBold: 600,
+      h1: {
+        fontWeight: 600,
+        letterSpacing: "-0.02em",
+      },
+      h2: {
+        fontWeight: 600,
+        letterSpacing: "-0.01em",
+      },
+      h3: {
+        fontWeight: 600,
+        letterSpacing: "-0.01em",
+      },
+      body1: {
+        fontWeight: 400,
+        letterSpacing: "0.01em",
+      },
+      body2: {
+        fontWeight: 400,
+        letterSpacing: "0.01em",
+      },
     },
     palette: {
       mode: paletteType,
@@ -70,6 +93,9 @@ export default function App() {
                 ? "linear-gradient(120deg, #f6f8fa 0%, #e7eaf0 100%)"
                 : "linear-gradient(120deg, #1e1e1e 0%, #2d2d2d 100%)",
             backgroundAttachment: "fixed",
+          },
+          html: {
+            backgroundColor: paletteType === "light" ? "#f6f8fa" : "#1e1e1e",
           },
         },
       },
@@ -170,13 +196,6 @@ export default function App() {
                 }}
               >
                 <Stack sx={{ mt: 1 }}>
-                  <Typography
-                    variant="caption"
-                    color="text.secondary"
-                    sx={{ ml: 4 }}
-                  >
-                    EXPLORER
-                  </Typography>
                   <AppTree
                     pages={pages}
                     selectedIndex={selectedIndex}

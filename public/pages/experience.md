@@ -1,5 +1,11 @@
 # 👨‍💻 Experience
 
+**Research Intern** @ [Harvard Kempner Institute](https://kempnerinstitute.harvard.edu/) _(2024-2025)_
+
+Reinforcement learning and evolutionary approaches to improving large language models
+
+&nbsp;
+
 **Summer Analyst** @ [Lazard](https://www.lazard.com/) _(Summer 2024)_
 
 Venture & Growth Banking; Worked on live deals involving semiconductor and AI infrastructure companies; Assisted on Lazard AI report

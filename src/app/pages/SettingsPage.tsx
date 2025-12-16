@@ -19,6 +19,7 @@ const pulse = keyframes`
   }
 `;
 
+
 export default function SettingsPage() {
   const { pathname } = useLocation();
   const [scrollProgress, setScrollProgress] = useState(0);

@@ -1,6 +1,7 @@
 # 📚 Books & Other Readings
 **Currently...**
 When Breath Becomes Air
+The $12 Million Stuffed Shark
 
 **Hall of Fame**
 Shoe Dog
@@ -16,10 +17,11 @@ also compiling
 # 🎵 Playlists
 My Favorite: https://open.spotify.com/playlist/2s49hfFs7Mlx8WWKBDUoCo?si=04a0a76f4efc4c6b
 
-# 🏙️ Favorite Cities (as of April 2025, in no particular order)
+# 🏙️ Favorite Cities (as of December 2025, in no particular order)
 | City | Highlights |
 | --- | --- |
 | Paris | onion soup so good |
 | Istanbul | kebab |
 | San Francisco | nature and weather |
 | Seoul | food |
+| San Diego | beaches |

@@ -9,6 +9,8 @@
     "@mui/icons-material": "^5.8.3",
     "@mui/lab": "^5.0.0-alpha.85",
     "@mui/material": "^5.8.3",
+    "@mui/system": "^5.16.14",
+    "@mui/x-tree-view": "6.17.0",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -74,5 +76,6 @@
     "dotenv": "^16.0.3",
     "gh-pages": "^4.0.0"
   },
-  "proxy": "http://localhost:3000"
+  "proxy": "http://localhost:3000",
+  "packageManager": "pnpm@9.7.1+sha512.faf344af2d6ca65c4c5c8c2224ea77a81a5e8859cbc4e06b1511ddce2f0151512431dd19e6aff31f2c6a8f5f2aced9bd2273e1fed7dd4de1868984059d2c4247"
 }

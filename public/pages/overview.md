@@ -2,12 +2,16 @@
 
 ## Summary
 
-Student at Harvard studying Statistics/Computer Science (Joint Bachelors) with secondary field in Mathematical Sciences.
+Recent graduate from Harvard with a double concentration in Statistics and Computer Science.
 
-I am interested in entrepreneurship. I am currently working on a technical consultancy.
+I am a member of the technical staff at [datacurve.ai](https://datacurve.ai), working on coding evals and environments. I also help with hiring—if you're interested in a possible role, reach out to john@datacurve.ai.
 
 
 ## Experience
+
+**Research Intern** @ [Harvard Kempner Institute](https://kempnerinstitute.harvard.edu/) _(2024-2025)_
+
+Reinforcement learning and evolutionary approaches to improving large language models
 
 **Summer Analyst** @ [Lazard](https://www.lazard.com/) _(2024)_
 

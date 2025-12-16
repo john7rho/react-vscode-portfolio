@@ -12,31 +12,6 @@ import {
 import GitHubCalendar from "react-github-calendar";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { keyframes } from "@mui/system";
-
-// Keyframes for animations
-const pulseLeftRight = keyframes`
-  0% {
-    transform: translateX(-5px);
-  }
-  50% {
-    transform: translateX(5px);
-  }
-  100% {
-    transform: translateX(-5px);
-  }
-`;
-
-const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
 
 // Define the Theme type for ActivityCalendar
 type Theme = {
@@ -138,15 +113,6 @@ interface LinkItem {
 
 export default function Home({ setSelectedIndex }: Props) {
   const { pathname } = useLocation();
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    // Trigger fade-in animation after component mounts
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     setSelectedIndex(-1);
@@ -196,7 +162,7 @@ export default function Home({ setSelectedIndex }: Props) {
               justifyContent={{ xs: "center", sm: "flex-start" }}
             >
               <Typography variant="subtitle1" gutterBottom>
-                Student at Harvard studying Statistics/CS and Math
+                Recent Harvard Graduate | Technical Staff @ <Link href="https://datacurve.ai" target="_blank" underline="hover" color="inherit">datacurve.ai</Link>
               </Typography>
             </Grid>
             <Grid
@@ -227,42 +193,6 @@ export default function Home({ setSelectedIndex }: Props) {
               <GitHubGraph username="john7rho" />
             </Box>
 
-            {/* Company site note */}
-            <Box
-              mt={2}
-              sx={{
-                textAlign: "center",
-                opacity: isVisible ? 1 : 0,
-                animation: isVisible ? `${fadeIn} 0.8s ease-out` : "none",
-              }}
-            >
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                sx={{ display: "inline" }}
-              >
-                {/* <Box
-                  component="span"
-                  sx={{
-                    animation: `${pulseLeftRight} 3s ease-in-out infinite`,
-                    display: "inline-block",
-                    marginRight: 2,
-                  }}
-                >
-                  {">>>"}
-                </Box> */}
-                {/* If you work in real estate, check out{" "}
-                <Link
-                  href="https://northbea.ch"
-                  target="_blank"
-                  underline="hover"
-                  color="inherit"
-                  sx={{ fontFamily: "JetBrains Mono" }}
-                >
-                  northbea.ch
-                </Link> */}
-              </Typography>
-            </Box>
           </Box>
         </Stack>
       </Grid>

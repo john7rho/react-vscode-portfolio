@@ -138,6 +138,7 @@ function MarkdownH2(props: { children: ReactNode }) {
 export default function MDContainer({ path }: Props) {
   const [content, setContent] = useState("");
   const { pathname } = useLocation();
+
   useEffect(() => {
     fetch(path)
       .then((res) => res.text())
@@ -157,7 +158,6 @@ export default function MDContainer({ path }: Props) {
         components={{
           code: MarkdownCode,
           a: MarkdownLink,
-          // p: MarkdownParagraph,
           table: MarkdownTable,
           thead: TableHead,
           tbody: TableBody,
@@ -167,7 +167,6 @@ export default function MDContainer({ path }: Props) {
           tfoot: TableFooter,
           h1: MarkdownH1,
           h2: MarkdownH2,
-          // br: MarkdownBr,
         }}
         remarkPlugins={[remarkGfm, remarkBreaks]}
         rehypePlugins={[rehypeRaw]}
