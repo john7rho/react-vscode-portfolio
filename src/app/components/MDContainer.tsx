@@ -13,21 +13,49 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useMemo, useState } from "react";
 import ReactMarkdown from "react-markdown";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import rehypeRaw from "rehype-raw";
 import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css";
 
 interface Props {
   path: string;
 }
 
-function MarkdownLink(props: any) {
+const markdownCache = new Map<string, string>();
+
+function MarkdownLink({
+  href,
+  children,
+  navigate,
+}: {
+  href?: string;
+  children?: ReactNode;
+  navigate: (path: string) => void;
+}) {
+  const isInternalLink = href?.startsWith("/notes/");
+
+  if (isInternalLink && href) {
+    return (
+      <Link
+        component="button"
+        underline="hover"
+        onClick={() => navigate(href)}
+        sx={{ verticalAlign: "baseline" }}
+      >
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <Link href={props.href} target="_blank" underline="hover">
-      {props.children}
+    <Link href={href} target="_blank" underline="hover">
+      {children}
     </Link>
   );
 }
@@ -138,11 +166,35 @@ function MarkdownH2(props: { children: ReactNode }) {
 export default function MDContainer({ path }: Props) {
   const [content, setContent] = useState("");
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(path)
+    let ignore = false;
+    const cached = markdownCache.get(path);
+
+    if (cached) {
+      setContent(cached);
+      return;
+    }
+
+    const controller = new AbortController();
+    fetch(path, { signal: controller.signal })
       .then((res) => res.text())
-      .then((text) => setContent(text));
+      .then((text) => {
+        if (ignore) return;
+        markdownCache.set(path, text);
+        setContent(text);
+      })
+      .catch((error: any) => {
+        if (error?.name !== "AbortError") {
+          return;
+        }
+      });
+
+    return () => {
+      ignore = true;
+      controller.abort();
+    };
   }, [path]);
 
   useEffect(() => {
@@ -151,25 +203,30 @@ export default function MDContainer({ path }: Props) {
     document.title = `${process.env.REACT_APP_NAME!} | ${title}`;
   }, [pathname]);
 
+  const markdownComponents = useMemo(
+    () => ({
+      code: MarkdownCode,
+      a: (props: any) => <MarkdownLink {...props} navigate={navigate} />,
+      table: MarkdownTable,
+      thead: TableHead,
+      tbody: TableBody,
+      th: MarkdownTableCell,
+      tr: TableRow,
+      td: MarkdownTableCell,
+      tfoot: TableFooter,
+      h1: MarkdownH1,
+      h2: MarkdownH2,
+    }),
+    [navigate]
+  );
+
   return (
     <Container>
       <ReactMarkdown
         children={content}
-        components={{
-          code: MarkdownCode,
-          a: MarkdownLink,
-          table: MarkdownTable,
-          thead: TableHead,
-          tbody: TableBody,
-          th: MarkdownTableCell,
-          tr: TableRow,
-          td: MarkdownTableCell,
-          tfoot: TableFooter,
-          h1: MarkdownH1,
-          h2: MarkdownH2,
-        }}
-        remarkPlugins={[remarkGfm, remarkBreaks]}
-        rehypePlugins={[rehypeRaw]}
+        components={markdownComponents}
+        remarkPlugins={[remarkGfm, remarkBreaks, remarkMath]}
+        rehypePlugins={[rehypeRaw, rehypeKatex]}
       />
     </Container>
   );

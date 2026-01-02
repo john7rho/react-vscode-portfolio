@@ -14,6 +14,11 @@ compiling rn
 **Educational Essays**
 also compiling
 
+# 📄 Research Papers
+| Paper | Notes |
+| --- | --- |
+| [mHC: Manifold-Constrained Hyper-Connections](https://arxiv.org/abs/2512.24880) | [Notes](/notes/mhc-manifold-constrained-hyper-connections) |
+
 # 🎵 Playlists
 My Favorite: https://open.spotify.com/playlist/2s49hfFs7Mlx8WWKBDUoCo?si=04a0a76f4efc4c6b
 

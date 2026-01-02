@@ -6,20 +6,21 @@ import {
   Grid,
   Stack,
   ThemeProvider,
-  Typography,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import AppTree from "./AppTree";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import AppButtons from "./AppButtons";
-import MDContainer from "../components/MDContainer";
-import Home from "../pages/Home";
-import SettingsPage from "../pages/SettingsPage";
 import { pages } from "../pages/pages";
 import usePageTracking from "../hooks/usePageTracking";
 import { isBrowser } from "react-device-detect";
+
+const Home = lazy(() => import("../pages/Home"));
+const SettingsPage = lazy(() => import("../pages/SettingsPage"));
+const MDContainer = lazy(() => import("../components/MDContainer"));
+const NoteContainer = lazy(() => import("../components/NoteContainer"));
 
 interface Page {
   index: number;
@@ -44,80 +45,92 @@ export default function App() {
   const [visiblePageIndexs, setVisiblePageIndexs] = useState(
     initVisiblePageIndexs(pages)
   );
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    if (typeof window === "undefined") {
+      return true;
+    }
+    const currentTheme = window.localStorage.getItem("theme");
+    if (!currentTheme) {
+      return true;
+    }
+    return currentTheme === "dark";
+  });
   const [visiblePages, setVisiblePages] = useState(pages);
   const paletteType = darkMode ? "dark" : "light";
   usePageTracking();
 
-  const theme = createTheme({
-    typography: {
-      fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
-      fontWeightLight: 300,
-      fontWeightRegular: 400,
-      fontWeightMedium: 500,
-      fontWeightBold: 600,
-      h1: {
-        fontWeight: 600,
-        letterSpacing: "-0.02em",
-      },
-      h2: {
-        fontWeight: 600,
-        letterSpacing: "-0.01em",
-      },
-      h3: {
-        fontWeight: 600,
-        letterSpacing: "-0.01em",
-      },
-      body1: {
-        fontWeight: 400,
-        letterSpacing: "0.01em",
-      },
-      body2: {
-        fontWeight: 400,
-        letterSpacing: "0.01em",
-      },
-    },
-    palette: {
-      mode: paletteType,
-      background: {
-        default: paletteType === "light" ? "#FFFFFF" : "#1e1e1e",
-      },
-    },
-    components: {
-      MuiCssBaseline: {
-        styleOverrides: {
-          body: {
-            ...(paletteType === "dark" ? darkScrollbar() : null),
-            backgroundImage:
-              paletteType === "light"
-                ? "linear-gradient(120deg, #f6f8fa 0%, #e7eaf0 100%)"
-                : "linear-gradient(120deg, #1e1e1e 0%, #2d2d2d 100%)",
-            backgroundAttachment: "fixed",
+  const theme = useMemo(
+    () =>
+      createTheme({
+        typography: {
+          fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
+          fontWeightLight: 300,
+          fontWeightRegular: 400,
+          fontWeightMedium: 500,
+          fontWeightBold: 600,
+          h1: {
+            fontWeight: 600,
+            letterSpacing: "-0.02em",
           },
-          html: {
-            backgroundColor: paletteType === "light" ? "#f6f8fa" : "#1e1e1e",
+          h2: {
+            fontWeight: 600,
+            letterSpacing: "-0.01em",
+          },
+          h3: {
+            fontWeight: 600,
+            letterSpacing: "-0.01em",
+          },
+          body1: {
+            fontWeight: 400,
+            letterSpacing: "0.01em",
+          },
+          body2: {
+            fontWeight: 400,
+            letterSpacing: "0.01em",
           },
         },
-      },
-      MuiDivider: {
-        styleOverrides: {
-          root: {
-            borderColor: "rgba(255, 255, 255, 0.12)",
+        palette: {
+          mode: paletteType,
+          background: {
+            default: paletteType === "light" ? "#FFFFFF" : "#1e1e1e",
           },
         },
-      },
-    },
-  });
+        components: {
+          MuiCssBaseline: {
+            styleOverrides: {
+              body: {
+                ...(paletteType === "dark" ? darkScrollbar() : null),
+                backgroundImage:
+                  paletteType === "light"
+                    ? "linear-gradient(120deg, #f6f8fa 0%, #e7eaf0 100%)"
+                    : "linear-gradient(120deg, #1e1e1e 0%, #2d2d2d 100%)",
+                backgroundAttachment: "fixed",
+              },
+              html: {
+                backgroundColor: paletteType === "light" ? "#f6f8fa" : "#1e1e1e",
+              },
+            },
+          },
+          MuiDivider: {
+            styleOverrides: {
+              root: {
+                borderColor: "rgba(255, 255, 255, 0.12)",
+              },
+            },
+          },
+        },
+      }),
+    [paletteType]
+  );
 
-  function handleThemeChange() {
-    setDarkMode(!darkMode);
-    localStorage.setItem("theme", darkMode ? "light" : "dark");
-  }
-
-  useEffect(() => {
-    const currentTheme = localStorage.getItem("theme");
-    if (!currentTheme) setDarkMode(true);
-    else setDarkMode(currentTheme === "dark");
+  const handleThemeChange = useCallback(() => {
+    setDarkMode((prev) => {
+      const next = !prev;
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem("theme", next ? "dark" : "light");
+      }
+      return next;
+    });
   }, []);
 
   const deletedIndex = visiblePages.find(
@@ -235,31 +248,47 @@ export default function App() {
                   height: `calc(100vh - 20px - 33px)`,
                 }}
               >
-                <Routes>
-                  <Route
-                    path="/"
-                    element={<Home setSelectedIndex={setSelectedIndex} />}
-                  />
-                  {pages.map(({ index, name, route }) => {
-                    if (route === "/settings") {
+                <Suspense
+                  fallback={
+                    <Stack
+                      sx={{ height: "100%", py: 4 }}
+                      alignItems="center"
+                      justifyContent="center"
+                    >
+                      Loading...
+                    </Stack>
+                  }
+                >
+                  <Routes>
+                    <Route
+                      path="/"
+                      element={<Home setSelectedIndex={setSelectedIndex} />}
+                    />
+                    {pages.map(({ index, name, route }) => {
+                      if (route === "/settings") {
+                        return (
+                          <Route
+                            key={index}
+                            path={route}
+                            element={<SettingsPage />}
+                          />
+                        );
+                      }
                       return (
                         <Route
                           key={index}
                           path={route}
-                          element={<SettingsPage />}
+                          element={<MDContainer path={`/pages/${name}`} />}
                         />
                       );
-                    }
-                    return (
-                      <Route
-                        key={index}
-                        path={route}
-                        element={<MDContainer path={`/pages/${name}`} />}
-                      />
-                    );
-                  })}
-                  <Route path="*" element={<Navigate to="/" replace />} />
-                </Routes>
+                    })}
+                    <Route
+                      path="/notes/:noteId"
+                      element={<NoteContainer />}
+                    />
+                    <Route path="*" element={<Navigate to="/" replace />} />
+                  </Routes>
+                </Suspense>
               </Grid>
             </Grid>
           </Grid>

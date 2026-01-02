@@ -57,7 +57,7 @@ export default function AppButtons({
 
   function renderCloseButtonColor(index: number) {
     if (theme.palette.mode === "dark") {
-      return selectedIndex === index ? "#white" : "#2d2d2d";
+      return selectedIndex === index ? "white" : "#2d2d2d";
     } else {
       return selectedIndex === index ? "#72736d" : "#ececec";
     }
@@ -73,7 +73,7 @@ export default function AppButtons({
 
   function renderCloseButtonHoverColor(index: number) {
     if (theme.palette.mode === "dark") {
-      return selectedIndex !== index ? "#817d7a" : "#white";
+      return selectedIndex !== index ? "#817d7a" : "white";
     } else {
       return selectedIndex === index ? "#44434b" : "#92938e";
     }
