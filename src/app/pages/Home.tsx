@@ -1,10 +1,10 @@
 import { lazy, Suspense, useEffect, type Dispatch, type SetStateAction } from "react";
 import { useLocation } from "react-router-dom";
-import { Box, Grid, Link, Stack, Typography } from "@mui/material";
+import { Box, Grid, Link, Stack, Typography, useMediaQuery } from "@mui/material";
 
 const GitHubCalendar = lazy(() => import("react-github-calendar"));
 
-const GitHubGraph = ({ username }: { username: string }) => {
+const GitHubGraph = ({ username, isMobile }: { username: string; isMobile: boolean }) => {
   return (
     <Box
       sx={{
@@ -12,7 +12,7 @@ const GitHubGraph = ({ username }: { username: string }) => {
         overflowX: "auto",
         border: "1px solid rgba(255, 255, 255, 0.1)",
         borderRadius: "6px",
-        padding: "8px",
+        padding: isMobile ? "4px" : "8px",
         backgroundColor: "transparent",
       }}
     >
@@ -20,7 +20,7 @@ const GitHubGraph = ({ username }: { username: string }) => {
         fallback={
           <Box
             sx={{
-              height: 120,
+              height: isMobile ? 80 : 120,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -32,7 +32,10 @@ const GitHubGraph = ({ username }: { username: string }) => {
           </Box>
         }
       >
-        <GitHubCalendar username={username} colorScheme="dark" />
+        <GitHubCalendar
+          username={username}
+          colorScheme="dark"
+        />
       </Suspense>
     </Box>
   );
@@ -44,6 +47,7 @@ interface Props {
 
 export default function Home({ setSelectedIndex }: Props) {
   const { pathname } = useLocation();
+  const isMobile = useMediaQuery("(max-width:600px)");
 
   useEffect(() => {
     setSelectedIndex(-1);
@@ -60,7 +64,7 @@ export default function Home({ setSelectedIndex }: Props) {
       direction="column"
       alignItems="center"
       justifyContent="center"
-      sx={{ minHeight: `calc(100vh - 20px - 33px)` }}
+      sx={{ minHeight: `calc(100vh - 20px - 33px)`, px: isMobile ? 2 : 0 }}
     >
       <Grid item xs={3}>
         <Stack direction={{ xs: "column", sm: "row-reverse" }} spacing={2}>
@@ -69,13 +73,14 @@ export default function Home({ setSelectedIndex }: Props) {
               display="flex"
               justifyContent={{ xs: "center", sm: "flex-start" }}
             >
-              <Typography variant="h3">{process.env.REACT_APP_NAME}</Typography>
+              <Typography variant={isMobile ? "h4" : "h3"}>{process.env.REACT_APP_NAME}</Typography>
             </Grid>
             <Grid
               display="flex"
               justifyContent={{ xs: "center", sm: "flex-start" }}
+              sx={{ textAlign: isMobile ? "center" : "left" }}
             >
-              <Typography variant="subtitle1" gutterBottom>
+              <Typography variant={isMobile ? "body2" : "subtitle1"} gutterBottom>
                 Recent Harvard Graduate | Technical Staff @{" "}
                 <Link
                   href="https://datacurve.ai"
@@ -90,9 +95,9 @@ export default function Home({ setSelectedIndex }: Props) {
 
             <Box
               mt={2}
-              sx={{ width: "100%", maxWidth: "600px", margin: "0 auto" }}
+              sx={{ width: "100%", maxWidth: isMobile ? "100%" : "600px", margin: "0 auto" }}
             >
-              <GitHubGraph username="john7rho" />
+              <GitHubGraph username="john7rho" isMobile={isMobile} />
             </Box>
           </Box>
         </Stack>

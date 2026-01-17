@@ -1,10 +1,9 @@
-import React from "react";
+import React, { memo, useCallback, useMemo } from "react";
 import { Box, Link, Paper, Tooltip } from "@mui/material";
 import { keyframes } from "@mui/system";
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import { VscFiles, VscSettingsGear } from "react-icons/vsc";
 import { BiGitBranch } from "react-icons/bi";
+import { MdLightMode, MdDarkMode } from "react-icons/md";
 import Divider from "@mui/material/Divider";
 import { links } from "../pages/links";
 import { useNavigate } from "react-router-dom";
@@ -40,7 +39,7 @@ interface Props {
   setVisiblePageIndexs: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
-export default function Sidebar({
+function Sidebar({
   expanded,
   setExpanded,
   darkMode,
@@ -51,6 +50,57 @@ export default function Sidebar({
   setVisiblePageIndexs,
 }: Props) {
   const navigate = useNavigate();
+
+  const handleToggleExpanded = useCallback(() => {
+    setExpanded((prev) => !prev);
+  }, [setExpanded]);
+
+  const handleSettingsClick = useCallback(() => {
+    if (!visiblePageIndexs.includes(6)) {
+      const newIndexs = [...visiblePageIndexs, 6];
+      setVisiblePageIndexs(newIndexs);
+    }
+    navigate("/settings");
+    setSelectedIndex(6);
+    setCurrentComponent("sidebar");
+  }, [
+    visiblePageIndexs,
+    setVisiblePageIndexs,
+    navigate,
+    setSelectedIndex,
+    setCurrentComponent,
+  ]);
+
+  const bubbleStyles = useMemo(
+    () =>
+      expanded
+        ? {
+            "&::before, &::after": {
+              content: '""',
+              position: "absolute",
+              bottom: "0",
+              left: "50%",
+              width: "30px",
+              height: "30px",
+              borderRadius: "50%",
+              background: "rgba(255, 255, 255, 0.1)",
+              animation: `${bubbleAnimation} 15s infinite ease-in-out`,
+            },
+            "&::before": {
+              left: "25%",
+              animationDelay: "2s",
+            },
+            "&::after": {
+              left: "75%",
+              width: "20px",
+              height: "20px",
+              animationDelay: "5s",
+            },
+          }
+        : {},
+    [expanded]
+  );
+
   return (
     <Box
       sx={{
@@ -58,27 +108,7 @@ export default function Sidebar({
         background: `radial-gradient(circle at center, #001f3f, #000814)`,
         position: "relative",
         overflow: "hidden",
-        "&::before, &::after": {
-          content: '""',
-          position: "absolute",
-          bottom: "0",
-          left: "50%",
-          width: "30px",
-          height: "30px",
-          borderRadius: "50%",
-          background: "rgba(255, 255, 255, 0.1)",
-          animation: `${bubbleAnimation} 15s infinite ease-in-out`,
-        },
-        "&::before": {
-          left: "25%",
-          animationDelay: "2s",
-        },
-        "&::after": {
-          left: "75%",
-          width: "20px",
-          height: "20px",
-          animationDelay: "5s",
-        },
+        ...bubbleStyles,
       }}
       justifyContent="space-between"
       display="flex"
@@ -103,7 +133,7 @@ export default function Sidebar({
             cursor: "pointer",
             WebkitTapHighlightColor: "rgba(0,0,0,0)",
           }}
-          onClick={() => setExpanded(!expanded)}
+          onClick={handleToggleExpanded}
         >
           <Box
             sx={{
@@ -210,11 +240,11 @@ export default function Sidebar({
           >
             {!darkMode ? (
               <Box>
-                <DarkModeOutlinedIcon />
+                <MdDarkMode />
               </Box>
             ) : (
               <Box>
-                <LightModeOutlinedIcon />
+                <MdLightMode />
               </Box>
             )}
           </Box>
@@ -232,15 +262,7 @@ export default function Sidebar({
           }}
           display="flex"
           justifyContent="center"
-          onClick={() => {
-            if (!visiblePageIndexs.includes(6)) {
-              const newIndexs = [...visiblePageIndexs, 6];
-              setVisiblePageIndexs(newIndexs);
-            }
-            navigate("/settings");
-            setSelectedIndex(6);
-            setCurrentComponent("sidebar");
-          }}
+          onClick={handleSettingsClick}
         >
           <Box
             mt={0.7}
@@ -255,3 +277,5 @@ export default function Sidebar({
     </Box>
   );
 }
+
+export default memo(Sidebar);

@@ -1,4 +1,4 @@
-import { Box, Container, Divider, Typography } from "@mui/material";
+import { Box, Container, Divider, Typography, useMediaQuery } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { keyframes } from "@mui/system";
@@ -26,6 +26,7 @@ export default function SettingsPage() {
   const [scrollContainer, setScrollContainer] = useState<HTMLElement | null>(
     null
   );
+  const isMobile = useMediaQuery("(max-width:600px)");
 
   useEffect(() => {
     let title = pathname.substring(1, pathname.length);
@@ -46,42 +47,63 @@ export default function SettingsPage() {
     return () => scrollContainer.removeEventListener("scroll", handleScroll);
   }, [scrollContainer]);
 
+  const imageWidth = isMobile ? "100%" : 350;
+
   return (
-    <Container sx={{ mt: 2 }}>
-      <Typography variant="h4" gutterBottom>
+    <Container sx={{ mt: 2, px: isMobile ? 2 : 3 }}>
+      <Typography variant={isMobile ? "h5" : "h4"} gutterBottom>
         Me 🇰🇷 🇺🇸
       </Typography>
       <Divider sx={{ mb: 2 }} />
-      <Box display="flex" flexDirection={{ xs: "column", sm: "row" }} gap={4}>
-        <Box flexShrink={0}>
-          <img
-            src="/rho_boston.jpg"
-            alt="Your Photo Here"
-            style={{ borderRadius: 8, width: 350, height: "auto" }}
-          />
+      <Box display="flex" flexDirection={{ xs: "column", sm: "row" }} gap={isMobile ? 2 : 4}>
+        <Box flexShrink={0} sx={{ textAlign: isMobile ? "center" : "left" }}>
+          <picture>
+            <source
+              type="image/webp"
+              srcSet="/rho_boston_350.webp 1x, /rho_boston_700.webp 2x"
+            />
+            <source
+              type="image/jpeg"
+              srcSet="/rho_boston_350.jpg 1x, /rho_boston_700.jpg 2x"
+            />
+            <img
+              src="/rho_boston_350.jpg"
+              alt="John Rho in Boston"
+              loading="lazy"
+              decoding="async"
+              style={{
+                borderRadius: 8,
+                width: imageWidth,
+                maxWidth: isMobile ? 280 : 350,
+                height: "auto",
+                margin: isMobile ? "0 auto" : undefined,
+                display: "block"
+              }}
+            />
+          </picture>
           <Typography
             variant="subtitle1"
             color="text.secondary"
-            sx={{ mt: 1, textAlign: "center" }}
+            sx={{ mt: 1, textAlign: "center", fontSize: isMobile ? "0.875rem" : undefined }}
           >
             May 2025 // Boston, MA
           </Typography>
           <Typography
             variant="caption"
             color="text.secondary"
-            sx={{ mt: 0.5, textAlign: "center", fontSize: "0.75rem" }}
+            sx={{ mt: 0.5, textAlign: "center", fontSize: isMobile ? "0.7rem" : "0.75rem", display: "block" }}
           >
             Photo credit: Raj Sastry
           </Typography>
         </Box>
-        <Box sx={{ position: "relative", display: "flex" }}>
+        <Box sx={{ position: "relative", display: "flex", width: "100%" }}>
           <Box
             ref={setScrollContainer}
             sx={{
               height: "fit-content",
-              maxHeight: "500px",
+              maxHeight: isMobile ? "400px" : "500px",
               overflowY: "auto",
-              paddingRight: 1,
+              paddingRight: isMobile ? 2 : 5,
               flex: 1,
               "&::-webkit-scrollbar": {
                 display: "none",
@@ -89,10 +111,10 @@ export default function SettingsPage() {
               scrollbarWidth: "none",
             }}
           >
-            <Typography variant="h5" gutterBottom>
+            <Typography variant={isMobile ? "h6" : "h5"} gutterBottom>
               Bridges Across Boundaries
             </Typography>
-            <Typography paragraph>
+            <Typography paragraph sx={{ fontSize: isMobile ? "0.9rem" : undefined }}>
               At twenty-two, I carry within me the wide-open spirit of
               Texas—that place where horizons stretch endlessly and possibility
               feels as vast as the summer sky. Born and raised in a state where
@@ -100,19 +122,19 @@ export default function SettingsPage() {
               early that the most fascinating discoveries happen at the
               intersections where different worlds meet.
             </Typography>
-            <Typography paragraph>
+            <Typography paragraph sx={{ fontSize: isMobile ? "0.9rem" : undefined }}>
               My approach to life mirrors what we call the
               exploration-exploitation paradigm in reinforcement learning—that
               delicate dance between venturing into uncharted territory and
-              deepening our understanding of what we’ve already discovered. Like
-              an algorithm learning to navigate a complex environment, I’ve
+              deepening our understanding of what we've already discovered. Like
+              an algorithm learning to navigate a complex environment, I've
               found that the most rewarding path forward requires balancing bold
               curiosity with the wisdom gained from experience. Sometimes you
               must venture beyond the familiar to find unexpected rewards; other
               times, you deepen your mastery of known terrain. This philosophy
-              has shaped every major decision I’ve made.
+              has shaped every major decision I've made.
             </Typography>
-            <Typography paragraph>
+            <Typography paragraph sx={{ fontSize: isMobile ? "0.9rem" : undefined }}>
               During college, this mindset led me to seek experiences across
               vastly different domains. At StubHub, a company poised on the
               exciting precipice of an IPO, I immersed myself in product
@@ -122,7 +144,7 @@ export default function SettingsPage() {
               as we scaled systems and refined experiences for an ever-growing
               audience.
             </Typography>
-            <Typography paragraph>
+            <Typography paragraph sx={{ fontSize: isMobile ? "0.9rem" : undefined }}>
               From there, I pivoted to investment banking at Lazard, where I
               focused on growth-stage fundraising. The transition felt like
               learning a new language—from product metrics to financial
@@ -135,48 +157,48 @@ export default function SettingsPage() {
               financial model is code, and behind every code base are real
               people solving real problems.
             </Typography>
-            <Typography paragraph>
-              Today, I’ve planted myself across three dynamic cities—San
+            <Typography paragraph sx={{ fontSize: isMobile ? "0.9rem" : undefined }}>
+              Today, I've planted myself across three dynamic cities—San
               Francisco, Boston, and New York—building a technical consultancy
               that embodies this philosophy of exploration. Each city offers its
-              own unique ecosystem: San Francisco’s relentless innovation,
-              Boston’s academic depth, and New York’s financial sophistication.
-              Moving between these worlds, I’ve discovered that the most
+              own unique ecosystem: San Francisco's relentless innovation,
+              Boston's academic depth, and New York's financial sophistication.
+              Moving between these worlds, I've discovered that the most
               impactful solutions emerge when we bridge different domains of
               knowledge and connect diverse communities of builders.
             </Typography>
-            <Typography paragraph>
-              We’re living through what feels like a fundamental transformation
-              in human capability—artificial intelligence isn’t just another
-              technological advancement, it’s a paradigm shift that’s reshaping
+            <Typography paragraph sx={{ fontSize: isMobile ? "0.9rem" : undefined }}>
+              We're living through what feels like a fundamental transformation
+              in human capability—artificial intelligence isn't just another
+              technological advancement, it's a paradigm shift that's reshaping
               how we think, create, and collaborate. Like the printing press or
               the internet before it, AI represents a new chapter in our
               collective story, one where the boundaries between human insight
               and machine capability blur in extraordinary ways. Every
               conversation I have, every project I take on, is touched by this
-              reality that we’re not just building software anymore—we’re
+              reality that we're not just building software anymore—we're
               crafting tools that augment human potential itself.
             </Typography>
-            <Typography paragraph>
+            <Typography paragraph sx={{ fontSize: isMobile ? "0.9rem" : undefined }}>
               What excites me most is how this moment demands exactly the kind
-              of cross-pollination I’ve always gravitated toward. The most
-              meaningful AI applications don’t emerge from technical prowess
+              of cross-pollination I've always gravitated toward. The most
+              meaningful AI applications don't emerge from technical prowess
               alone, but from understanding human needs, market dynamics, and
               the intricate ways that different communities approach problems.
               My journey from Texas to these coastal cities, from product to
               finance to engineering, feels like preparation for this moment
-              when diverse perspectives aren’t just valuable—they’re essential.
+              when diverse perspectives aren't just valuable—they're essential.
             </Typography>
-            <Typography paragraph>
+            <Typography paragraph sx={{ fontSize: isMobile ? "0.9rem" : undefined }}>
               Each day brings new opportunities to explore uncharted territory
-              while building on the foundations we’ve already established.
-              Whether I’m working with a startup founder in Boston,
+              while building on the foundations we've already established.
+              Whether I'm working with a startup founder in Boston,
               collaborating with researchers in San Francisco, or meeting with
-              investors in New York, I’m reminded that our differences aren’t
-              barriers to overcome—they’re bridges to cross, leading us toward
+              investors in New York, I'm reminded that our differences aren't
+              barriers to overcome—they're bridges to cross, leading us toward
               solutions we could never have imagined alone.
             </Typography>
-            <Typography paragraph>
+            <Typography paragraph sx={{ fontSize: isMobile ? "0.9rem" : undefined }}>
               This is the adventure I find myself on: using the
               exploration-exploitation framework not just as a technical
               concept, but as a philosophy for building connections, creating
@@ -187,48 +209,50 @@ export default function SettingsPage() {
             </Typography>
           </Box>
 
-          {/* Custom minimalist scrollbar */}
-          <Box
-            sx={{
-              position: "absolute",
-              right: "8px",
-              top: 0,
-              bottom: 0,
-              width: "2px",
-              backgroundColor: "rgba(255, 255, 255, 0.1)",
-              borderRadius: "1px",
-            }}
-          >
-            {/* Progress line */}
+          {/* Custom minimalist scrollbar - hidden on mobile */}
+          {!isMobile && (
             <Box
               sx={{
                 position: "absolute",
+                right: "24px",
                 top: 0,
-                left: 0,
-                right: 0,
-                height: `${scrollProgress * 100}%`,
-                backgroundColor: "rgba(255, 255, 255, 0.3)",
+                bottom: 0,
+                width: "2px",
+                backgroundColor: "rgba(255, 255, 255, 0.1)",
                 borderRadius: "1px",
-                transition: "height 0.1s ease-out",
               }}
-            />
+            >
+              {/* Progress line */}
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: `${scrollProgress * 100}%`,
+                  backgroundColor: "rgba(255, 255, 255, 0.3)",
+                  borderRadius: "1px",
+                  transition: "height 0.1s ease-out",
+                }}
+              />
 
-            {/* Pulsing dot indicator */}
-            <Box
-              sx={{
-                position: "absolute",
-                left: "-3px",
-                top: `${scrollProgress * 100}%`,
-                width: "8px",
-                height: "8px",
-                backgroundColor: "rgba(255, 255, 255, 0.8)",
-                borderRadius: "50%",
-                transform: "translateY(-50%)",
-                animation: `${pulse} 2s ease-in-out infinite`,
-                transition: "top 0.1s ease-out",
-              }}
-            />
-          </Box>
+              {/* Pulsing dot indicator */}
+              <Box
+                sx={{
+                  position: "absolute",
+                  left: "-3px",
+                  top: `${scrollProgress * 100}%`,
+                  width: "8px",
+                  height: "8px",
+                  backgroundColor: "rgba(255, 255, 255, 0.8)",
+                  borderRadius: "50%",
+                  transform: "translateY(-50%)",
+                  animation: `${pulse} 2s ease-in-out infinite`,
+                  transition: "top 0.1s ease-out",
+                }}
+              />
+            </Box>
+          )}
         </Box>
       </Box>
     </Container>

@@ -1,12 +1,12 @@
 import * as React from "react";
 import { TreeView } from "@mui/x-tree-view/TreeView";
 import { TreeItem } from "@mui/x-tree-view/TreeItem";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useMemo, useCallback, memo } from "react";
 import { useTheme } from "@mui/material/styles";
+import { useMediaQuery } from "@mui/material";
 import { VscMarkdown, VscSettingsGear } from "react-icons/vsc";
+import { MdExpandMore, MdChevronRight } from "react-icons/md";
 
 interface Page {
   index: number;
@@ -28,7 +28,7 @@ interface Props {
   setVisiblePageIndexs: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
-export default function AppTree({
+function AppTree({
   pages,
   selectedIndex,
   setSelectedIndex,
@@ -39,7 +39,7 @@ export default function AppTree({
 }: Props) {
   const navigate = useNavigate();
   const theme = useTheme();
-  // const [selectedIndex, setSelectedIndex] = useState(-1);
+  const isMobile = useMediaQuery("(max-width:600px)");
   let { pathname } = useLocation();
 
   const page: Page = pages.find((x) => x.route === pathname)!;
@@ -50,75 +50,104 @@ export default function AppTree({
     }
   }, [page, setSelectedIndex]);
 
-  function renderTreeItemBgColor(index: number) {
-    if (theme.palette.mode === "dark") {
-      return selectedIndex === index ? "rgba(144,202,249,0.16)" : "#252527";
-    } else {
-      return selectedIndex === index ? "#295fbf" : "#f3f3f3";
-    }
-  }
+  const isDark = theme.palette.mode === "dark";
 
-  function renderTreeItemColor(index: number) {
-    if (theme.palette.mode === "dark") {
-      return selectedIndex === index && currentComponent === "tree"
-        ? "white"
-        : "#bdc3cf";
-    } else {
-      return selectedIndex === index ? "#e2ffff" : "#69665f";
-    }
-  }
+  const getTreeItemBgColor = useCallback(
+    (index: number) => {
+      if (isDark) {
+        return selectedIndex === index ? "rgba(144,202,249,0.16)" : "#252527";
+      } else {
+        return selectedIndex === index ? "#295fbf" : "#f3f3f3";
+      }
+    },
+    [isDark, selectedIndex]
+  );
+
+  const getTreeItemColor = useCallback(
+    (index: number) => {
+      if (isDark) {
+        return selectedIndex === index && currentComponent === "tree"
+          ? "white"
+          : "#bdc3cf";
+      } else {
+        return selectedIndex === index ? "#e2ffff" : "#69665f";
+      }
+    },
+    [isDark, selectedIndex, currentComponent]
+  );
+
+  const handleHomeClick = useCallback(() => {
+    navigate("/");
+    setSelectedIndex(-1);
+  }, [navigate, setSelectedIndex]);
+
+  const handleItemClick = useCallback(
+    (index: number, route: string) => {
+      if (!visiblePageIndexs.includes(index)) {
+        const newIndexs = [...visiblePageIndexs, index];
+        setVisiblePageIndexs(newIndexs);
+      }
+      navigate(route);
+      setSelectedIndex(index);
+      setCurrentComponent("tree");
+    },
+    [
+      visiblePageIndexs,
+      setVisiblePageIndexs,
+      navigate,
+      setSelectedIndex,
+      setCurrentComponent,
+    ]
+  );
+
+  const treeItems = useMemo(
+    () =>
+      pages.map(({ index, name, route }) => {
+        const getFileIcon = () => {
+          if (route === "/settings") {
+            return <VscSettingsGear color="#6997d5" />;
+          }
+          return <VscMarkdown color="#6997d5" />;
+        };
+
+        return (
+          <TreeItem
+            key={index}
+            nodeId={index.toString()}
+            label={name}
+            sx={{
+              color: getTreeItemColor(index),
+              backgroundColor: getTreeItemBgColor(index),
+              "&& .Mui-selected": {
+                backgroundColor: getTreeItemBgColor(index),
+              },
+            }}
+            icon={getFileIcon()}
+            onClick={() => handleItemClick(index, route)}
+          />
+        );
+      }),
+    [pages, getTreeItemColor, getTreeItemBgColor, handleItemClick]
+  );
 
   return (
     <TreeView
       aria-label="file system navigator"
-      defaultCollapseIcon={<ExpandMoreIcon />}
-      defaultExpandIcon={<ChevronRightIcon />}
-      sx={{ minWidth: 220 }}
+      defaultCollapseIcon={<MdExpandMore />}
+      defaultExpandIcon={<MdChevronRight />}
+      sx={{ minWidth: isMobile ? 170 : 220 }}
       defaultExpanded={["-1"]}
     >
       <TreeItem
         nodeId="-1"
         label="Home"
         color="#bdc3cf"
-        onClick={() => {
-          navigate("/");
-          setSelectedIndex(-1);
-        }}
+        onClick={handleHomeClick}
       >
-        {pages.map(({ index, name, route }) => {
-          const getFileIcon = () => {
-            if (route === "/settings") {
-              return <VscSettingsGear color="#6997d5" />;
-            }
-            return <VscMarkdown color="#6997d5" />;
-          };
-
-          return (
-            <TreeItem
-              key={index}
-              nodeId={index.toString()}
-              label={name}
-              sx={{
-                color: renderTreeItemColor(index),
-                backgroundColor: renderTreeItemBgColor(index),
-                "&& .Mui-selected": {
-                  backgroundColor: renderTreeItemBgColor(index),
-                },
-              }}
-              icon={getFileIcon()}
-              onClick={() => {
-                if (!visiblePageIndexs.includes(index)) {
-                  const newIndexs = [...visiblePageIndexs, index];
-                  setVisiblePageIndexs(newIndexs);
-                }
-                navigate(route);
-                setSelectedIndex(index);
-                setCurrentComponent("tree");
-              }}
-            />
-          );
-        })}
+        {treeItems}
       </TreeItem>
     </TreeView>
   );
 }
+
+export default memo(AppTree);

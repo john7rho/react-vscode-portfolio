@@ -6,6 +6,7 @@ import {
   Grid,
   Stack,
   ThemeProvider,
+  useMediaQuery,
 } from "@mui/material";
 import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import AppTree from "./AppTree";
@@ -39,7 +40,8 @@ function initVisiblePageIndexs(pages: Page[]) {
 
 export default function App() {
   const navigate = useNavigate();
-  const [expanded, setExpanded] = useState(isBrowser);
+  const isMobile = useMediaQuery("(max-width:600px)");
+  const [expanded, setExpanded] = useState(isBrowser && !isMobile);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [currentComponent, setCurrentComponent] = useState("");
   const [visiblePageIndexs, setVisiblePageIndexs] = useState(
@@ -188,7 +190,7 @@ export default function App() {
       >
         <Grid container sx={{ overflow: "auto", overflowY: "hidden" }}>
           <Grid container sx={{ overflow: "auto" }}>
-            <Grid item sx={{ width: 50 }}>
+            <Grid item sx={{ width: isMobile ? 45 : 50 }}>
               <Sidebar
                 setExpanded={setExpanded}
                 expanded={expanded}
@@ -205,7 +207,7 @@ export default function App() {
                 item
                 sx={{
                   backgroundColor: darkMode ? "#252527" : "#f3f3f3",
-                  width: 220,
+                  width: isMobile ? 180 : 220,
                 }}
               >
                 <Stack sx={{ mt: 1 }}>

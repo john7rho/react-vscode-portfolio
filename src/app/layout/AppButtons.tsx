@@ -1,5 +1,5 @@
 import { Button, Box, Paper } from "@mui/material";
-import React from "react";
+import React, { memo, useMemo, useCallback } from "react";
 import { VscMarkdown, VscChromeClose, VscSettingsGear } from "react-icons/vsc";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
@@ -19,7 +19,7 @@ interface Props {
   setVisiblePageIndexs: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
-export default function AppButtons({
+function AppButtons({
   pages,
   selectedIndex,
   setSelectedIndex,
@@ -30,130 +30,150 @@ export default function AppButtons({
 }: Props) {
   const navigate = useNavigate();
   const theme = useTheme();
-  // const [selectedIndex, setSelectedIndex] = useState(-1);
-  function renderButtonBgColor(index: number) {
-    if (theme.palette.mode === "dark") {
-      return selectedIndex === index ? "#1e1e1e" : "#2d2d2d";
-    } else {
-      return selectedIndex === index ? "#ffffff" : "#ececec";
-    }
-  }
+  const isDark = theme.palette.mode === "dark";
 
-  function renderButtonColor(index: number) {
-    if (theme.palette.mode === "dark") {
-      return selectedIndex === index ? "white" : "#817d7a";
-    } else {
-      return selectedIndex === index ? "#524a5f" : "#716f74";
-    }
-  }
+  const getStyles = useCallback(
+    (index: number) => {
+      const isSelected = selectedIndex === index;
+      return {
+        buttonBg: isDark
+          ? isSelected
+            ? "#1e1e1e"
+            : "#2d2d2d"
+          : isSelected
+          ? "#ffffff"
+          : "#ececec",
+        buttonColor: isDark
+          ? isSelected
+            ? "white"
+            : "#817d7a"
+          : isSelected
+          ? "#524a5f"
+          : "#716f74",
+        closeButtonBg: isDark
+          ? isSelected
+            ? "#1e1e1e"
+            : "#2d2d2d"
+          : isSelected
+          ? "#ffffff"
+          : "#ececec",
+        closeButtonColor: isDark
+          ? isSelected
+            ? "white"
+            : "#2d2d2d"
+          : isSelected
+          ? "#72736d"
+          : "#ececec",
+        closeButtonHoverBg: isDark
+          ? "#333c43"
+          : isSelected
+          ? "#e6e4e5"
+          : "#dadada",
+        closeButtonHoverColor: isDark
+          ? isSelected
+            ? "white"
+            : "#817d7a"
+          : isSelected
+          ? "#44434b"
+          : "#92938e",
+      };
+    },
+    [isDark, selectedIndex]
+  );
 
-  function renderCloseButtonBgColor(index: number) {
-    if (theme.palette.mode === "dark") {
-      return selectedIndex === index ? "#1e1e1e" : "#2d2d2d";
-    } else {
-      return selectedIndex === index ? "#ffffff" : "#ececec";
-    }
-  }
+  const handleButtonClick = useCallback(
+    (index: number, route: string) => {
+      setSelectedIndex(index);
+      setCurrentComponent("button");
+      navigate(route);
+    },
+    [setSelectedIndex, setCurrentComponent, navigate]
+  );
 
-  function renderCloseButtonColor(index: number) {
-    if (theme.palette.mode === "dark") {
-      return selectedIndex === index ? "white" : "#2d2d2d";
-    } else {
-      return selectedIndex === index ? "#72736d" : "#ececec";
-    }
-  }
+  const handleCloseClick = useCallback(
+    (e: React.MouseEvent, index: number) => {
+      e.stopPropagation();
+      setVisiblePageIndexs(visiblePageIndexs.filter((x) => x !== index));
+    },
+    [visiblePageIndexs, setVisiblePageIndexs]
+  );
 
-  function renderCloseButtonHoverBgColor(index: number) {
-    if (theme.palette.mode === "dark") {
-      return selectedIndex === index ? "#333c43" : "#333c43";
-    } else {
-      return selectedIndex === index ? "#e6e4e5" : "#dadada";
-    }
-  }
+  const borderColor = isDark ? "#252525" : "#f3f3f3";
 
-  function renderCloseButtonHoverColor(index: number) {
-    if (theme.palette.mode === "dark") {
-      return selectedIndex !== index ? "#817d7a" : "white";
-    } else {
-      return selectedIndex === index ? "#44434b" : "#92938e";
-    }
-  }
+  const renderedButtons = useMemo(
+    () =>
+      pages.map(({ index, name, route }) => {
+        const styles = getStyles(index);
+        const getFileIcon = () => {
+          if (route === "/settings") {
+            return <VscSettingsGear />;
+          }
+          return <VscMarkdown />;
+        };
 
-  function renderPageButton(index: number, name: string, route: string) {
-    const getFileIcon = () => {
-      if (route === "/settings") {
-        return <VscSettingsGear />;
-      }
-      return <VscMarkdown />;
-    };
-
-    return (
-      <Box
-        key={index}
-        sx={{
-          display: "inline-block",
-          borderRight: 1,
-          borderColor: theme.palette.mode === "dark" ? "#252525" : "#f3f3f3",
-        }}
-      >
-        <Button
-          key={index}
-          disableRipple
-          disableElevation
-          disableFocusRipple
-          onClick={() => {
-            setSelectedIndex(index);
-            setCurrentComponent("button");
-            navigate(route);
-          }}
-          sx={{
-            borderRadius: 0,
-            px: 2,
-            textTransform: "none",
-            backgroundColor: renderButtonBgColor(index),
-            color: renderButtonColor(index),
-            "&.MuiButtonBase-root:hover": {
-              bgcolor: renderButtonBgColor(index),
-            },
-            transition: "none",
-            pb: 0.2,
-          }}
-        >
+        return (
           <Box
-            sx={{ color: "#6997d5", width: 20, height: 20, mr: 0.4, ml: -1 }}
-          >
-            {getFileIcon()}
-          </Box>
-          {name}
-          <Box
-            component={Paper}
+            key={index}
             sx={{
-              ml: 1,
-              mr: -1,
-              backgroundColor: renderCloseButtonBgColor(index),
-              color: renderCloseButtonColor(index),
-              "&.MuiPaper-root:hover": {
-                bgcolor: renderCloseButtonHoverBgColor(index),
-                color: renderCloseButtonHoverColor(index),
-              },
-              width: 20,
-              height: 20,
-              transition: "none",
-            }}
-            elevation={0}
-            onClick={(e: any) => {
-              e.stopPropagation();
-              setVisiblePageIndexs(
-                visiblePageIndexs.filter((x) => x !== index)
-              );
+              display: "inline-block",
+              borderRight: 1,
+              borderColor: borderColor,
             }}
           >
-            <VscChromeClose />
+            <Button
+              key={index}
+              disableRipple
+              disableElevation
+              disableFocusRipple
+              onClick={() => handleButtonClick(index, route)}
+              sx={{
+                borderRadius: 0,
+                px: 2,
+                textTransform: "none",
+                backgroundColor: styles.buttonBg,
+                color: styles.buttonColor,
+                "&.MuiButtonBase-root:hover": {
+                  bgcolor: styles.buttonBg,
+                },
+                transition: "none",
+                pb: 0.2,
+              }}
+            >
+              <Box
+                sx={{ color: "#6997d5", width: 20, height: 20, mr: 0.4, ml: -1 }}
+              >
+                {getFileIcon()}
+              </Box>
+              {name}
+              <Box
+                component={Paper}
+                sx={{
+                  ml: 1,
+                  mr: -1,
+                  backgroundColor: styles.closeButtonBg,
+                  color: styles.closeButtonColor,
+                  "&.MuiPaper-root:hover": {
+                    bgcolor: styles.closeButtonHoverBg,
+                    color: styles.closeButtonHoverColor,
+                  },
+                  width: 20,
+                  height: 20,
+                  transition: "none",
+                }}
+                elevation={0}
+                onClick={(e: React.MouseEvent) => handleCloseClick(e, index)}
+              >
+                <VscChromeClose />
+              </Box>
+            </Button>
           </Box>
-        </Button>
-      </Box>
-    );
-  }
+        );
+      }),
+    [pages, getStyles, borderColor, handleButtonClick, handleCloseClick]
+  );
+
+  const containerBgColor = isDark ? "#252527" : "#f3f3f3";
+  const scrollbarThumbColor = isDark ? "#535353" : "#8c8c8c";
 
   return (
     <Container
@@ -164,32 +184,21 @@ export default function AppButtons({
         overflowX: "auto",
         overflowY: "hidden",
         whiteSpace: "nowrap",
-        backgroundColor: theme.palette.mode === "dark" ? "#252527" : "#f3f3f3",
+        backgroundColor: containerBgColor,
         "&::-webkit-scrollbar": {
           height: "3px",
-          // backgroundColor: 'red',
         },
         "&::-webkit-scrollbar-thumb": {
-          backgroundColor:
-            theme.palette.mode === "dark" ? "#535353" : "#8c8c8c",
+          backgroundColor: scrollbarThumbColor,
         },
         "&::-webkit-darkScrollbar-thumb": {
-          backgroundColor:
-            theme.palette.mode === "dark" ? "#ffffff" : "#8c8c8c",
+          backgroundColor: isDark ? "#ffffff" : "#8c8c8c",
         },
-        // '&::-webkit-scrollbar:hover, & *::-webkit-scrollbar:hover': {
-        //   backgroundColor: '#ffffff',
-        // },
-        // '&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover':
-        //   {
-        //     backgroundColor:
-        //       theme.palette.mode === 'dark' ? '#ffffff' : '#8c8c8c',
-        //   },
       }}
     >
-      {pages.map(({ index, name, route }) =>
-        renderPageButton(index, name, route)
-      )}
+      {renderedButtons}
     </Container>
   );
 }
+
+export default memo(AppButtons);

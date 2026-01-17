@@ -19,6 +19,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import rehypeRaw from "rehype-raw";
 import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css";
 
 interface Props {
   path: string;
@@ -71,7 +74,6 @@ function MarkdownTableCell(props: { children: ReactNode }) {
   return (
     <TableCell>
       {props.children}
-      {/* <Typography>{props.children}</Typography> */}
     </TableCell>
   );
 }
@@ -122,45 +124,7 @@ function MarkdownH2(props: { children: ReactNode }) {
   );
 }
 
-// function MarkdownParagraph(props: { children: ReactNode }) {
-//   if (!props.children) return <Typography>{props.children}</Typography>;
-
-//   const element: any = props.children;
-//   let result = [];
-
-//   let anyInlineElement = false;
-//   for (let e of element) {
-//     if (e.type) {
-//       anyInlineElement = true;
-//     }
-//   }
-
-//   if (anyInlineElement) {
-//     for (let e of element) {
-//       if (e.type) {
-//         result.push({ ...e });
-//       } else {
-//         result.push(
-//           <Typography key={e} display="inline">
-//             {e}
-//           </Typography>
-//         );
-//       }
-//     }
-//   } else {
-//     for (let e of element) {
-//       if (e.type) {
-//         result.push({ ...e });
-//       } else {
-//         result.push(<Typography key={e}>{e}</Typography>);
-//       }
-//     }
-//   }
-
-//   return <>{result}</>;
-// }
-
-export default function MDContainer({ path }: Props) {
+export default function NoteMDContainer({ path }: Props) {
   const [content, setContent] = useState("");
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -222,8 +186,8 @@ export default function MDContainer({ path }: Props) {
       <ReactMarkdown
         children={content}
         components={markdownComponents}
-        remarkPlugins={[remarkGfm, remarkBreaks]}
-        rehypePlugins={[rehypeRaw]}
+        remarkPlugins={[remarkGfm, remarkBreaks, remarkMath]}
+        rehypePlugins={[rehypeRaw, rehypeKatex]}
       />
     </Container>
   );
