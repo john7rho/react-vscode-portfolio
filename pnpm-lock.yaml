@@ -50,6 +50,9 @@ importers:
       chroma-js:
         specifier: ^2.4.2
         version: 2.6.0
+      get-ascii-image:
+        specifier: ^1.3.6
+        version: 1.3.6
       katex:
         specifier: ^0.16.27
         version: 0.16.27
@@ -3316,6 +3319,9 @@ packages:
   gensync@1.0.0-beta.2:
     resolution: {integrity: sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==}
     engines: {node: '>=6.9.0'}
+
+  get-ascii-image@1.3.6:
+    resolution: {integrity: sha512-DJQezy5i2Z9LCa6YIAvw/eef3JWTdhmy83OD65yiLo6D7eVlFtiWyazWo8Ndyg5r+dP5ESXc4B/YGI7Y7Mk9tA==}
 
   get-caller-file@2.0.5:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
@@ -10309,6 +10315,8 @@ snapshots:
   generator-function@2.0.1: {}
 
   gensync@1.0.0-beta.2: {}
+
+  get-ascii-image@1.3.6: {}
 
   get-caller-file@2.0.5: {}
 

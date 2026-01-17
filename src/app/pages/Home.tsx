@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, type Dispatch, type SetStateAction } from "react";
 import { useLocation } from "react-router-dom";
 import { Box, Grid, Link, Stack, Typography, useMediaQuery } from "@mui/material";
+import AsciiBackground from "../components/AsciiBackground";
 
 const GitHubCalendar = lazy(() => import("react-github-calendar"));
 
@@ -58,14 +59,16 @@ export default function Home({ setSelectedIndex }: Props) {
   }, [pathname]);
 
   return (
-    <Grid
-      container
-      spacing={0}
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-      sx={{ minHeight: `calc(100vh - 20px - 33px)`, px: isMobile ? 2 : 0 }}
-    >
+    <>
+      <AsciiBackground />
+      <Grid
+        container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        sx={{ minHeight: `calc(100vh - 20px - 33px)`, px: isMobile ? 2 : 0 }}
+      >
       <Grid item xs={3}>
         <Stack direction={{ xs: "column", sm: "row-reverse" }} spacing={2}>
           <Box>
@@ -103,5 +106,6 @@ export default function Home({ setSelectedIndex }: Props) {
         </Stack>
       </Grid>
     </Grid>
+    </>
   );
 }
