@@ -8,17 +8,6 @@ import {
   VscCheck,
 } from "react-icons/vsc";
 import { IoIosGitBranch } from "react-icons/io";
-import { keyframes } from "@mui/system";
-
-const glistenAnimation = keyframes`
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 100%;
-  }
-`;
-
 export default function Footer() {
   const isMobile = useMediaQuery("(max-width:600px)");
 
@@ -33,17 +22,6 @@ export default function Footer() {
         backgroundColor: "black",
         position: "relative",
         overflow: "hidden",
-        "&::after": {
-          content: '""',
-          position: "absolute",
-          top: 0,
-          left: "-100%",
-          width: "100%",
-          height: "100%",
-          background:
-            "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)",
-          animation: `${glistenAnimation} 5s linear infinite`,
-        },
       }}
       display="flex"
     >
@@ -66,7 +44,7 @@ export default function Footer() {
         </Grid>
         <Grid
           item
-          sx={{ backgroundColor: "#3279CB", width: isMobile ? "auto" : "200px", flex: isMobile ? 1 : "none" }}
+          sx={{ backgroundColor: "black", width: isMobile ? "auto" : "200px", flex: isMobile ? 1 : "none" }}
           display="flex"
         >
           <Stack direction="row" spacing={0.5} sx={{ pl: 1 }}>
@@ -82,7 +60,7 @@ export default function Footer() {
                 justifyContent: "center",
                 alignItems: "center",
                 "&:hover": {
-                  background: "#1f8ad2",
+                    background: "#1a1a1a",
                 },
               }}
             >
@@ -101,7 +79,7 @@ export default function Footer() {
                 px: 0.5,
                 cursor: "pointer",
                 "&:hover": {
-                  background: "#1f8ad2",
+                    background: "#1a1a1a",
                 },
               }}
             >
@@ -152,7 +130,7 @@ export default function Footer() {
         {!isMobile && (
           <Grid
             item
-            sx={{ backgroundColor: "#3279CB", minWidth: `calc(100% - 235px)` }}
+            sx={{ backgroundColor: "black", minWidth: `calc(100% - 235px)` }}
             display="flex"
             justifyContent="flex-end"
           >
@@ -171,7 +149,7 @@ export default function Footer() {
                     alignItems: "center",
                     cursor: "pointer",
                     "&:hover": {
-                      background: "#1f8ad2",
+                      background: "#1a1a1a",
                     },
                   }}
                 >
@@ -190,7 +168,7 @@ export default function Footer() {
                     px: 0.5,
                     cursor: "pointer",
                     "&:hover": {
-                      background: "#1f8ad2",
+                      background: "#1a1a1a",
                     },
                   }}
                 >
@@ -206,7 +184,7 @@ export default function Footer() {
                     px: 0.5,
                     cursor: "pointer",
                     "&:hover": {
-                      background: "#1f8ad2",
+                      background: "#1a1a1a",
                     },
                   }}
                 >

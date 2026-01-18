@@ -1,5 +1,11 @@
 # 🥇 Technical Coursework (Selected)
 
+## Spring 2026
+- MIT 6.5840 Distributed Systems
+- Stat 149: Generalized Linear Models
+- 6.1060 Software Performance Engineering
+- MIT 6.5410 Advanced Complexity Theory
+
 ## Spring 2025
 - Advanced Algorithms (CS 2241 (G), Harvard)
 - Computational Learning Theory (CS 2280 (G), Harvard)

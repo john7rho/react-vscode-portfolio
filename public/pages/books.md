@@ -1,18 +1,21 @@
 # 📚 Books & Other Readings
-**Currently...**
+**📌 Currently...**
 When Breath Becomes Air
 The $12 Million Stuffed Shark
 
-**Hall of Fame**
+**🏆 Hall of Fame**
 Shoe Dog
 The Absolutely True Diary of a Part-Time Indian
 The Giver
 
-**Fun Essays**
+**✨ Fun Essays**
 compiling rn
 
-**Educational Essays**
+**🎓 Educational Essays**
 also compiling
+
+**📰 Blogs**
+[Simon Willison](https://simonwillison.net/)
 
 # 📄 Research Papers
 | Paper | Notes |

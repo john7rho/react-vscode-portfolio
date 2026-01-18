@@ -2,7 +2,7 @@
 
 ## Summary
 
-Recent graduate from Harvard with a double concentration in Statistics and Computer Science.
+Student at Harvard with a double concentration in Statistics and Computer Science.
 
 I am a member of the technical staff at [datacurve.ai](https://datacurve.ai), working on coding evals and environments. I also help with hiring—if you're interested in a possible role, reach out to john@datacurve.ai.
 

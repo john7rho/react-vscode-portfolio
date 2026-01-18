@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useMemo } from "react";
+import React, { memo, useCallback } from "react";
 import { Box, Link, Paper, Tooltip } from "@mui/material";
 import { keyframes } from "@mui/system";
 import { VscFiles, VscSettingsGear } from "react-icons/vsc";
@@ -8,19 +8,35 @@ import Divider from "@mui/material/Divider";
 import { links } from "../pages/links";
 import { useNavigate } from "react-router-dom";
 
-const bubbleAnimation = keyframes`
+const floatUp = keyframes`
   0% {
-    transform: translateY(100%) scale(0);
+    transform: translateY(0) rotate(0deg);
     opacity: 0;
   }
-  50% {
-    opacity: 1;
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
   }
   100% {
-    transform: translateY(-100vh) scale(1);
+    transform: translateY(-100vh) rotate(360deg);
     opacity: 0;
   }
 `;
+
+const ASCII_SYMBOLS = [
+  { char: "*", left: "15%", delay: "0s", duration: "12s", size: "18px" },
+  { char: "+", left: "30%", delay: "2s", duration: "15s", size: "14px" },
+  { char: "#", left: "50%", delay: "4s", duration: "18s", size: "16px" },
+  { char: "~", left: "70%", delay: "1s", duration: "14s", size: "20px" },
+  { char: "@", left: "85%", delay: "6s", duration: "16s", size: "12px" },
+  { char: "^", left: "25%", delay: "8s", duration: "13s", size: "15px" },
+  { char: "%", left: "60%", delay: "3s", duration: "17s", size: "14px" },
+  { char: "&", left: "40%", delay: "5s", duration: "11s", size: "16px" },
+  { char: "$", left: "75%", delay: "7s", duration: "19s", size: "13px" },
+  { char: "!", left: "10%", delay: "9s", duration: "14s", size: "17px" },
+];
 
 const shine = keyframes`
   0% { filter: brightness(1); }
@@ -71,35 +87,6 @@ function Sidebar({
     setCurrentComponent,
   ]);
 
-  const bubbleStyles = useMemo(
-    () =>
-      expanded
-        ? {
-            "&::before, &::after": {
-              content: '""',
-              position: "absolute",
-              bottom: "0",
-              left: "50%",
-              width: "30px",
-              height: "30px",
-              borderRadius: "50%",
-              background: "rgba(255, 255, 255, 0.1)",
-              animation: `${bubbleAnimation} 15s infinite ease-in-out`,
-            },
-            "&::before": {
-              left: "25%",
-              animationDelay: "2s",
-            },
-            "&::after": {
-              left: "75%",
-              width: "20px",
-              height: "20px",
-              animationDelay: "5s",
-            },
-          }
-        : {},
-    [expanded]
-  );
 
   return (
     <Box
@@ -108,7 +95,6 @@ function Sidebar({
         background: `radial-gradient(circle at center, #001f3f, #000814)`,
         position: "relative",
         overflow: "hidden",
-        ...bubbleStyles,
       }}
       justifyContent="space-between"
       display="flex"
@@ -117,6 +103,28 @@ function Sidebar({
       square
       elevation={0}
     >
+      {/* Floating ASCII symbols */}
+      {expanded &&
+        ASCII_SYMBOLS.map((sym, i) => (
+          <Box
+            key={i}
+            sx={{
+              position: "absolute",
+              bottom: 0,
+              left: sym.left,
+              color: "rgba(255, 255, 255, 0.4)",
+              fontFamily: "monospace",
+              fontSize: sym.size,
+              lineHeight: 1,
+              textShadow: "0 0 8px rgba(255, 255, 255, 0.3)",
+              animation: `${floatUp} ${sym.duration} ${sym.delay} infinite ease-in-out`,
+              pointerEvents: "none",
+              userSelect: "none",
+            }}
+          >
+            {sym.char}
+          </Box>
+        ))}
       <Box
         sx={{ flexGrow: 0 }}
         display="flex"
