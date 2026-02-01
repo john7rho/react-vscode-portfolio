@@ -1,12 +1,10 @@
 import React, { memo, useCallback } from "react";
 import { Box, Link, Paper, Tooltip } from "@mui/material";
 import { keyframes } from "@mui/system";
-import { VscFiles, VscSettingsGear } from "react-icons/vsc";
+import { VscFiles } from "react-icons/vsc";
 import { BiGitBranch } from "react-icons/bi";
-import { MdLightMode, MdDarkMode } from "react-icons/md";
 import Divider from "@mui/material/Divider";
 import { links } from "../pages/links";
-import { useNavigate } from "react-router-dom";
 
 const floatUp = keyframes`
   0% {
@@ -38,55 +36,18 @@ const ASCII_SYMBOLS = [
   { char: "!", left: "10%", delay: "9s", duration: "14s", size: "17px" },
 ];
 
-const shine = keyframes`
-  0% { filter: brightness(1); }
-  50% { filter: brightness(2); }
-  100% { filter: brightness(1); }
-`;
-
 interface Props {
   expanded: boolean;
   setExpanded: React.Dispatch<React.SetStateAction<boolean>>;
-  darkMode: boolean;
-  handleThemeChange: () => void;
-  setSelectedIndex: React.Dispatch<React.SetStateAction<number>>;
-  setCurrentComponent: React.Dispatch<React.SetStateAction<string>>;
-  visiblePageIndexs: number[];
-  setVisiblePageIndexs: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
 function Sidebar({
   expanded,
   setExpanded,
-  darkMode,
-  handleThemeChange,
-  setSelectedIndex,
-  setCurrentComponent,
-  visiblePageIndexs,
-  setVisiblePageIndexs,
 }: Props) {
-  const navigate = useNavigate();
-
   const handleToggleExpanded = useCallback(() => {
     setExpanded((prev) => !prev);
   }, [setExpanded]);
-
-  const handleSettingsClick = useCallback(() => {
-    if (!visiblePageIndexs.includes(6)) {
-      const newIndexs = [...visiblePageIndexs, 6];
-      setVisiblePageIndexs(newIndexs);
-    }
-    navigate("/settings");
-    setSelectedIndex(6);
-    setCurrentComponent("sidebar");
-  }, [
-    visiblePageIndexs,
-    setVisiblePageIndexs,
-    navigate,
-    setSelectedIndex,
-    setCurrentComponent,
-  ]);
-
 
   return (
     <Box
@@ -135,9 +96,7 @@ function Sidebar({
           sx={{
             borderLeft: expanded
               ? "solid 0.12em white"
-              : darkMode
-              ? "solid 0.12em #333333"
-              : "solid 0.12em #2c2c2c",
+              : "solid 0.12em #333333",
             cursor: "pointer",
             WebkitTapHighlightColor: "rgba(0,0,0,0)",
           }}
@@ -218,69 +177,6 @@ function Sidebar({
             </Link>
           </Tooltip>
         ))}
-      </Box>
-
-      <Box
-        sx={{ flexGrow: 0, pb: 0.5 }}
-        display="flex"
-        justifyContent="center"
-        flexDirection="column"
-      >
-        <Tooltip
-          title={darkMode ? "Turn on the light" : "Turn off the light"}
-          placement="right"
-          arrow
-        >
-          <Box
-            sx={{
-              flexGrow: 0,
-              fontSize: 24,
-              color: "#858585",
-              cursor: "pointer",
-              "&:hover": {
-                color: "white",
-              },
-              WebkitTapHighlightColor: "rgba(0,0,0,0)",
-            }}
-            display="flex"
-            justifyContent="center"
-            onClick={handleThemeChange}
-          >
-            {!darkMode ? (
-              <Box>
-                <MdDarkMode />
-              </Box>
-            ) : (
-              <Box>
-                <MdLightMode />
-              </Box>
-            )}
-          </Box>
-        </Tooltip>
-        <Box
-          sx={{
-            flexGrow: 0,
-            fontSize: 24,
-            color: "#858585",
-            cursor: "pointer",
-            "&:hover": {
-              color: "white",
-            },
-            WebkitTapHighlightColor: "rgba(0,0,0,0)",
-          }}
-          display="flex"
-          justifyContent="center"
-          onClick={handleSettingsClick}
-        >
-          <Box
-            mt={0.7}
-            sx={{
-              animation: `${shine} 2s infinite`,
-            }}
-          >
-            <VscSettingsGear />
-          </Box>
-        </Box>
       </Box>
     </Box>
   );

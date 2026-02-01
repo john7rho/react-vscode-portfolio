@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, type Dispatch, type SetStateAction } from "react";
+import { lazy, Suspense, useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import { useLocation } from "react-router-dom";
 import { Box, Grid, Link, Stack, Typography, useMediaQuery } from "@mui/material";
 import AsciiBackground from "../components/AsciiBackground";
@@ -54,9 +54,32 @@ export default function Home({ setSelectedIndex }: Props) {
     setSelectedIndex(-1);
   }, [setSelectedIndex]);
 
+  const [lastCommit, setLastCommit] = useState<string | null>(null);
+
   useEffect(() => {
     document.title = process.env.REACT_APP_NAME!;
   }, [pathname]);
+
+  useEffect(() => {
+    fetch("https://api.github.com/repos/john7rho/react-vscode-portfolio/commits?per_page=1")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          const date = new Date(data[0].commit.author.date);
+          setLastCommit(
+            date.toLocaleDateString("en-US", {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              hour: "numeric",
+              minute: "2-digit",
+            })
+          );
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <>
@@ -102,6 +125,20 @@ export default function Home({ setSelectedIndex }: Props) {
             >
               <GitHubGraph username="john7rho" isMobile={isMobile} />
             </Box>
+
+            {lastCommit && (
+              <Typography
+                variant="caption"
+                sx={{
+                  display: "block",
+                  mt: 3,
+                  color: "rgba(255, 255, 255, 0.4)",
+                  textAlign: isMobile ? "center" : "left",
+                }}
+              >
+                Last commit: {lastCommit}
+              </Typography>
+            )}
           </Box>
         </Stack>
       </Grid>

@@ -8,7 +8,7 @@ import {
   ThemeProvider,
   useMediaQuery,
 } from "@mui/material";
-import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import AppTree from "./AppTree";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
@@ -19,7 +19,6 @@ import usePageTracking from "../hooks/usePageTracking";
 import { isBrowser } from "react-device-detect";
 
 const Home = lazy(() => import("../pages/Home"));
-const SettingsPage = lazy(() => import("../pages/SettingsPage"));
 const MDContainer = lazy(() => import("../components/MDContainer"));
 const NoteContainer = lazy(() => import("../components/NoteContainer"));
 
@@ -47,18 +46,7 @@ export default function App() {
   const [visiblePageIndexs, setVisiblePageIndexs] = useState(
     initVisiblePageIndexs(pages)
   );
-  const [darkMode, setDarkMode] = useState(() => {
-    if (typeof window === "undefined") {
-      return true;
-    }
-    const currentTheme = window.localStorage.getItem("theme");
-    if (!currentTheme) {
-      return true;
-    }
-    return currentTheme === "dark";
-  });
   const [visiblePages, setVisiblePages] = useState(pages);
-  const paletteType = darkMode ? "dark" : "light";
   usePageTracking();
 
   const theme = useMemo(
@@ -92,24 +80,22 @@ export default function App() {
           },
         },
         palette: {
-          mode: paletteType,
+          mode: "dark",
           background: {
-            default: paletteType === "light" ? "#FFFFFF" : "#1e1e1e",
+            default: "#1e1e1e",
           },
         },
         components: {
           MuiCssBaseline: {
             styleOverrides: {
               body: {
-                ...(paletteType === "dark" ? darkScrollbar() : null),
+                ...darkScrollbar(),
                 backgroundImage:
-                  paletteType === "light"
-                    ? "linear-gradient(120deg, #f6f8fa 0%, #e7eaf0 100%)"
-                    : "linear-gradient(120deg, #1e1e1e 0%, #2d2d2d 100%)",
+                  "linear-gradient(120deg, #1e1e1e 0%, #2d2d2d 100%)",
                 backgroundAttachment: "fixed",
               },
               html: {
-                backgroundColor: paletteType === "light" ? "#f6f8fa" : "#1e1e1e",
+                backgroundColor: "#1e1e1e",
               },
             },
           },
@@ -122,18 +108,8 @@ export default function App() {
           },
         },
       }),
-    [paletteType]
+    []
   );
-
-  const handleThemeChange = useCallback(() => {
-    setDarkMode((prev) => {
-      const next = !prev;
-      if (typeof window !== "undefined") {
-        window.localStorage.setItem("theme", next ? "dark" : "light");
-      }
-      return next;
-    });
-  }, []);
 
   const deletedIndex = visiblePages.find(
     (x) => !visiblePageIndexs.includes(x.index)
@@ -194,19 +170,13 @@ export default function App() {
               <Sidebar
                 setExpanded={setExpanded}
                 expanded={expanded}
-                darkMode={darkMode}
-                handleThemeChange={handleThemeChange}
-                setSelectedIndex={setSelectedIndex}
-                setCurrentComponent={setCurrentComponent}
-                visiblePageIndexs={visiblePageIndexs}
-                setVisiblePageIndexs={setVisiblePageIndexs}
               />
             </Grid>
             {expanded && (
               <Grid
                 item
                 sx={{
-                  backgroundColor: darkMode ? "#252527" : "#f3f3f3",
+                  backgroundColor: "#252527",
                   width: isMobile ? 180 : 220,
                 }}
               >
@@ -266,24 +236,13 @@ export default function App() {
                       path="/"
                       element={<Home setSelectedIndex={setSelectedIndex} />}
                     />
-                    {pages.map(({ index, name, route }) => {
-                      if (route === "/settings") {
-                        return (
-                          <Route
-                            key={index}
-                            path={route}
-                            element={<SettingsPage />}
-                          />
-                        );
-                      }
-                      return (
-                        <Route
-                          key={index}
-                          path={route}
-                          element={<MDContainer path={`/pages/${name}`} />}
-                        />
-                      );
-                    })}
+                    {pages.map(({ index, name, route }) => (
+                      <Route
+                        key={index}
+                        path={route}
+                        element={<MDContainer path={`/pages/${name}`} />}
+                      />
+                    ))}
                     <Route
                       path="/notes/:noteId"
                       element={<NoteContainer />}
