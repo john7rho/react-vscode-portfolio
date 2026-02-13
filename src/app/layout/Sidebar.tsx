@@ -1,40 +1,9 @@
 import React, { memo, useCallback } from "react";
 import { Box, Link, Paper, Tooltip } from "@mui/material";
-import { keyframes } from "@mui/system";
 import { VscFiles } from "react-icons/vsc";
 import { BiGitBranch } from "react-icons/bi";
 import Divider from "@mui/material/Divider";
 import { links } from "../pages/links";
-
-const floatUp = keyframes`
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.6;
-  }
-  90% {
-    opacity: 0.6;
-  }
-  100% {
-    transform: translateY(-100vh) rotate(360deg);
-    opacity: 0;
-  }
-`;
-
-const ASCII_SYMBOLS = [
-  { char: "*", left: "15%", delay: "0s", duration: "12s", size: "18px" },
-  { char: "+", left: "30%", delay: "2s", duration: "15s", size: "14px" },
-  { char: "#", left: "50%", delay: "4s", duration: "18s", size: "16px" },
-  { char: "~", left: "70%", delay: "1s", duration: "14s", size: "20px" },
-  { char: "@", left: "85%", delay: "6s", duration: "16s", size: "12px" },
-  { char: "^", left: "25%", delay: "8s", duration: "13s", size: "15px" },
-  { char: "%", left: "60%", delay: "3s", duration: "17s", size: "14px" },
-  { char: "&", left: "40%", delay: "5s", duration: "11s", size: "16px" },
-  { char: "$", left: "75%", delay: "7s", duration: "19s", size: "13px" },
-  { char: "!", left: "10%", delay: "9s", duration: "14s", size: "17px" },
-];
 
 interface Props {
   expanded: boolean;
@@ -53,9 +22,7 @@ function Sidebar({
     <Box
       sx={{
         height: `calc(100vh - 20px)`,
-        background: `radial-gradient(circle at center, #001f3f, #000814)`,
-        position: "relative",
-        overflow: "hidden",
+        background: "#000000",
       }}
       justifyContent="space-between"
       display="flex"
@@ -64,28 +31,6 @@ function Sidebar({
       square
       elevation={0}
     >
-      {/* Floating ASCII symbols */}
-      {expanded &&
-        ASCII_SYMBOLS.map((sym, i) => (
-          <Box
-            key={i}
-            sx={{
-              position: "absolute",
-              bottom: 0,
-              left: sym.left,
-              color: "rgba(255, 255, 255, 0.4)",
-              fontFamily: "monospace",
-              fontSize: sym.size,
-              lineHeight: 1,
-              textShadow: "0 0 8px rgba(255, 255, 255, 0.3)",
-              animation: `${floatUp} ${sym.duration} ${sym.delay} infinite ease-in-out`,
-              pointerEvents: "none",
-              userSelect: "none",
-            }}
-          >
-            {sym.char}
-          </Box>
-        ))}
       <Box
         sx={{ flexGrow: 0 }}
         display="flex"

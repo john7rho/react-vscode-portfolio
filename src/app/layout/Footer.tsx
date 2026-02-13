@@ -1,3 +1,4 @@
+import React, { memo } from "react";
 import { Box, Grid, Link, Paper, Stack, Typography, useMediaQuery } from "@mui/material";
 import {
   VscRemote,
@@ -8,7 +9,7 @@ import {
   VscCheck,
 } from "react-icons/vsc";
 import { IoIosGitBranch } from "react-icons/io";
-export default function Footer() {
+function Footer() {
   const isMobile = useMediaQuery("(max-width:600px)");
 
   return (
@@ -198,3 +199,5 @@ export default function Footer() {
     </Box>
   );
 }
+
+export default memo(Footer);

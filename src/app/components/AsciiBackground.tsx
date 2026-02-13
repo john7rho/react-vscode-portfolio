@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import getAsciiImage from "get-ascii-image";
 
-const AsciiBackground = () => {
+const AsciiBackground = memo(() => {
   const [ascii, setAscii] = useState<string>("");
 
   useEffect(() => {
     getAsciiImage("/sf-cityscape.jpg", {
-      maxWidth: 2500,
+      maxWidth: 1000,
     })
       .then(setAscii)
       .catch(console.error);
@@ -40,6 +40,6 @@ const AsciiBackground = () => {
       {ascii}
     </Box>
   );
-};
+});
 
 export default AsciiBackground;
