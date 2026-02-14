@@ -11,7 +11,7 @@ const GitHubGraph = ({ username, isMobile }: { username: string; isMobile: boole
       sx={{
         maxWidth: "100%",
         overflowX: "auto",
-        border: "1px solid rgba(255, 255, 255, 0.1)",
+        border: "1px solid rgba(192, 192, 192, 0.12)",
         borderRadius: "6px",
         padding: isMobile ? "4px" : "8px",
         backgroundColor: "transparent",
@@ -36,6 +36,15 @@ const GitHubGraph = ({ username, isMobile }: { username: string; isMobile: boole
         <GitHubCalendar
           username={username}
           colorScheme="dark"
+          {...{
+            theme: {
+              level0: "#161b22",
+              level1: "#0b3d5b",
+              level2: "#0e6fa0",
+              level3: "#1a9fd4",
+              level4: "#40c4ff",
+            },
+          }}
         />
       </Suspense>
     </Box>
@@ -132,7 +141,7 @@ export default function Home({ setSelectedIndex }: Props) {
                 sx={{
                   display: "block",
                   mt: 3,
-                  color: "rgba(255, 255, 255, 0.4)",
+                  color: "rgba(192, 192, 192, 0.4)",
                   textAlign: isMobile ? "center" : "left",
                 }}
               >

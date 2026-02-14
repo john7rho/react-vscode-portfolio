@@ -55,7 +55,7 @@ function AppTree({
   const getTreeItemBgColor = useCallback(
     (index: number) => {
       if (isDark) {
-        return selectedIndex === index ? "rgba(144,202,249,0.16)" : "#252527";
+        return selectedIndex === index ? "rgba(192,192,192,0.12)" : "#141414";
       } else {
         return selectedIndex === index ? "#295fbf" : "#f3f3f3";
       }
@@ -67,8 +67,8 @@ function AppTree({
     (index: number) => {
       if (isDark) {
         return selectedIndex === index && currentComponent === "tree"
-          ? "white"
-          : "#bdc3cf";
+          ? "#d0d0d0"
+          : "#909090";
       } else {
         return selectedIndex === index ? "#e2ffff" : "#69665f";
       }
@@ -105,9 +105,9 @@ function AppTree({
       pages.map(({ index, name, route }) => {
         const getFileIcon = () => {
           if (route === "/settings") {
-            return <VscSettingsGear color="#6997d5" />;
+            return <VscSettingsGear color="#8a8a8a" />;
           }
-          return <VscMarkdown color="#6997d5" />;
+          return <VscMarkdown color="#8a8a8a" />;
         };
 
         return (

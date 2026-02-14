@@ -38,41 +38,41 @@ function AppButtons({
       return {
         buttonBg: isDark
           ? isSelected
-            ? "#1e1e1e"
-            : "#2d2d2d"
+            ? "#0a0a0a"
+            : "#1a1a1a"
           : isSelected
           ? "#ffffff"
           : "#ececec",
         buttonColor: isDark
           ? isSelected
-            ? "white"
-            : "#817d7a"
+            ? "#c0c0c0"
+            : "#666666"
           : isSelected
           ? "#524a5f"
           : "#716f74",
         closeButtonBg: isDark
           ? isSelected
-            ? "#1e1e1e"
-            : "#2d2d2d"
+            ? "#0a0a0a"
+            : "#1a1a1a"
           : isSelected
           ? "#ffffff"
           : "#ececec",
         closeButtonColor: isDark
           ? isSelected
-            ? "white"
-            : "#2d2d2d"
+            ? "#c0c0c0"
+            : "#1a1a1a"
           : isSelected
           ? "#72736d"
           : "#ececec",
         closeButtonHoverBg: isDark
-          ? "#333c43"
+          ? "#2a2a2a"
           : isSelected
           ? "#e6e4e5"
           : "#dadada",
         closeButtonHoverColor: isDark
           ? isSelected
-            ? "white"
-            : "#817d7a"
+            ? "#c0c0c0"
+            : "#888888"
           : isSelected
           ? "#44434b"
           : "#92938e",
@@ -98,7 +98,7 @@ function AppButtons({
     [visiblePageIndexs, setVisiblePageIndexs]
   );
 
-  const borderColor = isDark ? "#252525" : "#f3f3f3";
+  const borderColor = isDark ? "#1a1a1a" : "#f3f3f3";
 
   const renderedButtons = useMemo(
     () =>
@@ -140,7 +140,7 @@ function AppButtons({
               }}
             >
               <Box
-                sx={{ color: "#6997d5", width: 20, height: 20, mr: 0.4, ml: -1 }}
+                sx={{ color: "#8a8a8a", width: 20, height: 20, mr: 0.4, ml: -1 }}
               >
                 {getFileIcon()}
               </Box>
@@ -172,8 +172,8 @@ function AppButtons({
     [pages, getStyles, borderColor, handleButtonClick, handleCloseClick]
   );
 
-  const containerBgColor = isDark ? "#252527" : "#f3f3f3";
-  const scrollbarThumbColor = isDark ? "#535353" : "#8c8c8c";
+  const containerBgColor = isDark ? "#141414" : "#f3f3f3";
+  const scrollbarThumbColor = isDark ? "#404040" : "#8c8c8c";
 
   return (
     <Container

@@ -82,7 +82,7 @@ export default function App() {
         palette: {
           mode: "dark",
           background: {
-            default: "#1e1e1e",
+            default: "#0a0a0a",
           },
         },
         components: {
@@ -91,18 +91,18 @@ export default function App() {
               body: {
                 ...darkScrollbar(),
                 backgroundImage:
-                  "linear-gradient(120deg, #1e1e1e 0%, #2d2d2d 100%)",
+                  "linear-gradient(160deg, #2a2a2a 0%, #111111 40%, #000000 100%)",
                 backgroundAttachment: "fixed",
               },
               html: {
-                backgroundColor: "#1e1e1e",
+                backgroundColor: "#000000",
               },
             },
           },
           MuiDivider: {
             styleOverrides: {
               root: {
-                borderColor: "rgba(255, 255, 255, 0.12)",
+                borderColor: "rgba(192, 192, 192, 0.1)",
               },
             },
           },
@@ -176,7 +176,7 @@ export default function App() {
               <Grid
                 item
                 sx={{
-                  backgroundColor: "#252527",
+                  backgroundColor: "#141414",
                   width: isMobile ? 180 : 220,
                 }}
               >

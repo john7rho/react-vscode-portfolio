@@ -31,12 +31,12 @@ function Footer() {
           item
           sx={{
             width: "35px",
-            backgroundColor: "#2E8461",
+            backgroundColor: "#333333",
             justifyContent: "center",
             alignItems: "center",
             cursor: "pointer",
             "&:hover": {
-              background: "#329171",
+              background: "#444444",
             },
           }}
           display="flex"

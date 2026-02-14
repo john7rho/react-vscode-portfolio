@@ -34,7 +34,7 @@ const AsciiBackground = memo(() => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        color: "#ffffff",
+        color: "#b0b0b0",
       }}
     >
       {ascii}

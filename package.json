@@ -41,6 +41,7 @@
   "scripts": {
     "predeploy": "pnpm run build",
     "deploy": "gh-pages -b gh-pages -d build",
+    "dev": "react-scripts start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "vercel-build": "react-scripts build",
