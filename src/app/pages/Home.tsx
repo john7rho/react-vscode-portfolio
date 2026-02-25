@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect, useState, type Dispatch, type SetStateAction } from "react";
 import { useLocation } from "react-router-dom";
-import { Box, Grid, Link, Stack, Typography, useMediaQuery } from "@mui/material";
+import { Box, Grid, Stack, Typography, useMediaQuery } from "@mui/material";
 import AsciiBackground from "../components/AsciiBackground";
 
 const GitHubCalendar = lazy(() => import("react-github-calendar"));
