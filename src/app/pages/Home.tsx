@@ -116,15 +116,7 @@ export default function Home({ setSelectedIndex }: Props) {
               sx={{ textAlign: isMobile ? "center" : "left" }}
             >
               <Typography variant={isMobile ? "body2" : "subtitle1"} gutterBottom>
-                Harvard alumnus | Technical Staff @{" "}
-                <Link
-                  href="https://datacurve.ai"
-                  target="_blank"
-                  underline="hover"
-                  color="inherit"
-                >
-                  datacurve.ai
-                </Link>
+                Harvard alumnus
               </Typography>
             </Grid>
 

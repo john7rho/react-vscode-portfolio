@@ -4,10 +4,11 @@
 
 Student at Harvard with a double concentration in Statistics and Computer Science.
 
-I am a member of the technical staff at [datacurve.ai](https://datacurve.ai), working on coding evals and environments. I also help with hiring—if you're interested in a possible role, reach out to johnrho21@gmail.com.
-
-
 ## Experience
+
+**Technical Staff** @ [Datacurve](https://datacurve.ai) _(2025-Present)_
+
+Developing coding evals and RL environments for training large language models
 
 **Research Intern** @ [Harvard Kempner Institute](https://kempnerinstitute.harvard.edu/) _(2024-2025)_
 
