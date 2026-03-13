@@ -2,7 +2,7 @@
 
 ## Summary
 
-Student at Harvard with a double concentration in Statistics and Computer Science. I work on reliable, measurable, high-performance intelligent systems — distributed systems, evals, and performance tooling — and I want to build the infrastructure that makes AI systems actually work.
+Student at Harvard with a double concentration in Statistics and Computer Science. I work on reliable, measurable, high-performance intelligent systems, especially around evals and performance tooling. I am interested in developing smarter coding agents.
 
 ## Experience
 
