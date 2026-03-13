@@ -2,11 +2,11 @@
 
 ## Summary
 
-Student at Harvard with a double concentration in Statistics and Computer Science.
+Student at Harvard with a double concentration in Statistics and Computer Science. I work on reliable, measurable, high-performance intelligent systems — distributed systems, evals, and performance tooling — and I want to build the infrastructure that makes AI systems actually work.
 
 ## Experience
 
-**Technical Staff** @ [Datacurve](https://datacurve.ai) _(2025-Present)_
+**Technical Staff** @ [Datacurve](https://datacurve.ai) _(2025-2026)_
 
 Developing coding evals and RL environments for training large language models
 
