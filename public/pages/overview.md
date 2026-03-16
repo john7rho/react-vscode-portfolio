@@ -29,6 +29,11 @@ Coca-Cola Scholar, Human Capital Fellow, Z Fellow, Pear VC Garage Fellow, Bessem
 
 &nbsp;
 
+## Selected Coursework
+MIT 6.5410 Advanced Complexity Theory, MIT 6.5840 Distributed Systems, MIT 6.1060 Performance Engineering, COMPSCI 2280 Computational Learning Theory, STAT 184 Reinforcement Learning, APMTH 226 Theory of Neural Computation, ECON 2726 Theoretical and Empirical Perspectives on Entrepreneurship
+
+&nbsp;
+
 ## Languages
 **English**: Native
 **Korean**: Profient (can call my grandparents and tell them stories)
